@@ -3,6 +3,7 @@ from http.client import HTTPException
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
+from pinecone import Pinecone, ServerlessSpec
 from pydantic import BaseModel
 from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
@@ -14,8 +15,10 @@ app = FastAPI()
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY') or 'OPENAI_API_KEY'
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY') or 'OPENAI_API_KEY'
 
 client = OpenAI(api_key=OPENAI_API_KEY)
+pinecone = Pinecone()
 
 origins = [
     "http://localhost:8000"
@@ -44,3 +47,12 @@ async def create_completion():
     )
 
     return {"message": completion.choices[0].message.content}
+
+@app.get("/pinecone/test")
+async def test_pinecone():
+    index_list = pinecone.list_indexes()
+
+    index_name = index_list[0]['name']
+    dimension = index_list[0]['dimension']
+
+    return {"index_name": index_name, "dimension": dimension}
