@@ -14,8 +14,8 @@ export default function ChatAvatar({ role }: { role: string }) {
     <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border bg-black text-white shadow">
       <Image
         className="rounded-md"
-        src="/llama.png"
-        alt="Llama Logo"
+        src="/moon.png"
+        alt="Moon Logo"
         width={24}
         height={24}
         priority
