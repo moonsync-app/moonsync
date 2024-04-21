@@ -1,11 +1,12 @@
 import { StreamingTextResponse } from 'ai';
-import { ChatMessage, MessageContent, OpenAI, TogetherLLM } from 'llamaindex';
+import { ChatMessage, MessageContent } from 'llamaindex';
 import { NextRequest, NextResponse } from 'next/server';
-import { createChatEngine } from './engine';
-import { LlamaIndexStream } from './llamaindex-stream';
+import fetch from 'node-fetch';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+const apiUrl = process.env.API_URL;
 
 const convertMessageContent = (
   textMessage: string,
@@ -41,36 +42,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const llm = new TogetherLLM({
-      model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
-      maxTokens: 512,
-      apiKey: process.env.TOGETHER_API_KEY,
-    });
-
-    const chatEngine = await createChatEngine(llm);
-
     // Convert message content from Vercel/AI format to LlamaIndex/OpenAI format
     const userMessageContent = convertMessageContent(
       userMessage.content,
       data?.imageUrl
     );
 
-    // Calling LlamaIndex's ChatEngine to get a streamed response
-    const response = await chatEngine.chat({
-      message: userMessageContent,
-      chatHistory: messages,
-      stream: true,
-    });
+    // Make a GET request to the external API
+    const response = await fetch(
+      `${apiUrl}?prompt=${encodeURIComponent(userMessageContent)}`,
+      { method: 'GET' }
+    );
 
-    // Transform LlamaIndex stream to Vercel/AI format
-    const { stream, data: streamData } = LlamaIndexStream(response, {
-      parserOptions: {
-        image_url: data?.imageUrl,
-      },
+    // Parse the response as text
+    const text = await response.text();
+
+    // Convert the string to a ReadableStream
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(text);
+        controller.close();
+      }
     });
 
     // Return a StreamingTextResponse, which can be consumed by the Vercel/AI client
-    return new StreamingTextResponse(stream, {}, streamData);
+    return new StreamingTextResponse(stream);
   } catch (error) {
     console.error('[LlamaIndex]', error);
     return NextResponse.json(
