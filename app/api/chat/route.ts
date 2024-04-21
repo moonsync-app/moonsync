@@ -54,19 +54,8 @@ export async function POST(request: NextRequest) {
       { method: 'GET' }
     );
 
-    // Parse the response as text
-    const text = await response.text();
-
-    // Convert the string to a ReadableStream
-    const stream = new ReadableStream({
-      start(controller) {
-        controller.enqueue(text);
-        controller.close();
-      }
-    });
-
-    // Return a StreamingTextResponse, which can be consumed by the Vercel/AI client
-    return new StreamingTextResponse(stream);
+    // Return the response body directly
+    return new StreamingTextResponse(response.body);
   } catch (error) {
     console.error('[LlamaIndex]', error);
     return NextResponse.json(
