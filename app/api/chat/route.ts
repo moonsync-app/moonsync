@@ -5,6 +5,7 @@ import fetch from 'node-fetch';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+export const maxDuration = 300; // set to 5 mins
 
 const apiUrl = process.env.API_URL;
 
