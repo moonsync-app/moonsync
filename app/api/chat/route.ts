@@ -50,10 +50,21 @@ export async function POST(request: NextRequest) {
     );
 
     // Make a GET request to the external API
-    const response = await fetch(
-      `${apiUrl}?prompt=${encodeURIComponent(userMessageContent)}`,
-      { method: 'GET' }
-    );
+    // const response = await fetch(
+    //   `${apiUrl}?prompt=${encodeURIComponent(userMessageContent)}`,
+    //   { method: 'GET' }
+    // );
+
+    // Make a POST request to the external API
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt: userMessageContent,
+      }),
+    });
 
     // Return the response body directly
     return new StreamingTextResponse(response.body);
