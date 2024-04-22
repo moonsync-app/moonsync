@@ -63,6 +63,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         prompt: userMessageContent,
+        messages: messages,
       }),
     });
 
