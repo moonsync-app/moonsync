@@ -1,7 +1,6 @@
 import { StreamingTextResponse } from 'ai';
 import { ChatMessage, MessageContent } from 'llamaindex';
 import { NextRequest, NextResponse } from 'next/server';
-import fetch from 'node-fetch';
 import { geolocation } from '@vercel/edge';
 
 export const runtime = 'edge';
