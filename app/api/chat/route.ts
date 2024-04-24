@@ -1,7 +1,6 @@
 import { StreamingTextResponse } from 'ai';
 import { ChatMessage, MessageContent } from 'llamaindex';
 import { NextRequest, NextResponse } from 'next/server';
-import { geolocation } from '@vercel/edge';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -55,17 +54,21 @@ export async function POST(request: NextRequest) {
     //   { method: 'GET' }
     // );
 
-    // print out geolocation
-    console.log(`[LlamaIndex] Geolocation: ${JSON.stringify(geolocation)}`);
+    // print out geolocation info
+    const country = request.geo.country || 'US'
+    const city = request.geo.city || 'New York'
+    const region = request.geo.region || 'NY'
+
+    console.log(`Country: ${country}, City: ${city}, Region: ${region}`);
 
     // Make a POST request to the external API
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-vercel-ip-city': geolocation.city,
-        'x-vercel-ip-country-region': geolocation.region,
-        'x-vercel-ip-country': geolocation.country,
+        'x-vercel-ip-city': city,
+        'x-vercel-ip-country-region': region,
+        'x-vercel-ip-country': country,
       },
       body: JSON.stringify({
         prompt: userMessageContent,
