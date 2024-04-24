@@ -2,6 +2,7 @@ import { StreamingTextResponse } from 'ai';
 import { ChatMessage, MessageContent } from 'llamaindex';
 import { NextRequest, NextResponse } from 'next/server';
 import fetch from 'node-fetch';
+import { geolocation } from '@vercel/edge';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -60,6 +61,9 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'x-vercel-ip-city': geolocation.city,
+        'x-vercel-ip-country-region': geolocation.region,
+        'x-vercel-ip-country': geolocation.country,
       },
       body: JSON.stringify({
         prompt: userMessageContent,
