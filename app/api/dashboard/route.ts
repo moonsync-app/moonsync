@@ -11,6 +11,7 @@ const apiUrl = process.env.DASHBOARD_API_URL;
 
 export async function POST(request: NextRequest) {
   try {
+    console.log(`[LlamaIndex] Request: ${JSON.stringify(request)}`);
     const body = await request.json();
     const value = body.key;
     // Make a POST request to the external API
