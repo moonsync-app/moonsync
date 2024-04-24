@@ -29,6 +29,8 @@ const convertMessageContent = (
 };
 
 export async function POST(request: NextRequest) {
+  console.log(`[llamaindex] Request: ${JSON.stringify(request)}`);
+
   try {
     const body = await request.json();
     const { messages, data }: { messages: ChatMessage[]; data: any } = body;
@@ -56,7 +58,7 @@ export async function POST(request: NextRequest) {
     // );
 
     // print out geolocation info
-    const {country, city, region} = geolocation(request);
+    const {country = 'US', city = 'NYC', region = 'NY'} = geolocation(request);
     console.log(`Country: ${country}, City: ${city}, Region: ${region}`);
 
     // Make a POST request to the external API
