@@ -11,7 +11,7 @@ export default async function Page() {
   return (
     <main className={`flex min-h-screen flex-col items-center gap-10 p-4 background-gradient ${poppins.className}`}>
       <Header/>
-      <Link href="/chat">Go to chat</Link>
+      <Link href="/playground">Go to chat</Link>
       <StatsComponent />
     </main>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, LegacyRef } from "react";
 import { Button } from "../button";
 import FileUploader from "../file-uploader";
 import { Input } from "../input";
@@ -16,6 +16,7 @@ export default function ChatInput(
     | "handleInputChange"
   > & {
     multiModal?: boolean;
+    currRef: LegacyRef<HTMLButtonElement> | undefined
   },
 ) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -75,7 +76,7 @@ export default function ChatInput(
           onFileUpload={handleUploadFile}
           onFileError={props.onFileError}
         />
-        <Button type="submit" disabled={props.isLoading}>
+        <Button type="submit" disabled={props.isLoading} ref={props.currRef}>
           Send message
         </Button>
       </div>
