@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fetch from 'node-fetch';
 import { geolocation } from '@vercel/edge';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300; // set to 5 mins
 
