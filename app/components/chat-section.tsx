@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, Suspense } from "react";
 import { insertDataIntoMessages } from "./transform";
 import { ChatInput, ChatMessages } from "./ui/chat";
 import { useRouter} from 'next/navigation'
@@ -48,6 +48,7 @@ export default function ChatSection() {
   }, [messages, data]);
 
   return (
+    <Suspense>
     <div className="space-y-4 max-w-5xl w-full">
       <ChatMessages
         messages={transformedMessages}
@@ -64,5 +65,6 @@ export default function ChatSection() {
         currRef={inputRef}
       />
     </div>
+    </Suspense>
   );
 }
