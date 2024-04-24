@@ -1,6 +1,7 @@
 import { StreamingTextResponse } from 'ai';
 import { ChatMessage, MessageContent } from 'llamaindex';
 import { NextRequest, NextResponse } from 'next/server';
+import { geolocation } from '@vercel/edge';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -55,10 +56,7 @@ export async function POST(request: NextRequest) {
     // );
 
     // print out geolocation info
-    const country = request.nextUrl.searchParams.get('country') || 'US';
-    const city = request.nextUrl.searchParams.get('city') || 'New York';
-    const region = request.nextUrl.searchParams.get('region') || 'NY';
-
+    const {country, city, region} = geolocation(request);
     console.log(`Country: ${country}, City: ${city}, Region: ${region}`);
 
     // Make a POST request to the external API
