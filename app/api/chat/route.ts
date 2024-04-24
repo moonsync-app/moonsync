@@ -55,9 +55,9 @@ export async function POST(request: NextRequest) {
     // );
 
     // print out geolocation info
-    const country = request.geo.country || 'US'
-    const city = request.geo.city || 'New York'
-    const region = request.geo.region || 'NY'
+    const country = request.nextUrl.searchParams.get('country');
+    const city = request.nextUrl.searchParams.get('city');
+    const region = request.nextUrl.searchParams.get('region');
 
     console.log(`Country: ${country}, City: ${city}, Region: ${region}`);
 
