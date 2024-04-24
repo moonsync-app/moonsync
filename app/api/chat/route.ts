@@ -55,6 +55,9 @@ export async function POST(request: NextRequest) {
     //   { method: 'GET' }
     // );
 
+    // print out geolocation
+    console.log(`[LlamaIndex] Geolocation: ${JSON.stringify(geolocation)}`);
+
     // Make a POST request to the external API
     const response = await fetch(apiUrl, {
       method: 'POST',
