@@ -19,7 +19,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
   const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('https://moonsync.api/api/biometrics', {
+    fetch('https://moonsync.app/api/biometrics', {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },
