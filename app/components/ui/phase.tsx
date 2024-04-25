@@ -1,4 +1,6 @@
-import { useMemo } from "react";
+"use client"
+
+import { useMemo, useState, useEffect } from "react";
 import * as d3 from "d3";
 import { data, currentDay } from "./data";
 
@@ -14,9 +16,31 @@ const INFLEXION_PADDING = 15; // Space between donut and label inflexion point
 const colors = ["#ea404e", "#1a5c56", "#f87c00", "#0092bb"];
 
 export const DonutChart = ({ width, height }: DonutChartProps) => {
+  const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetch('https://moonsync.api/api/biometrics', {
+      method: 'POST',
+      body: JSON.stringify({ key: '42' }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('biodata', data)
+        setMenstrualPhase('Late Luteal'.toLowerCase().replace(/ /g,''))
+      });
+  }, [])
+
   const adjustedWidth = width * 2;
   const adjustedHeight = height * 2;
-
+  const phaseToPositionMap = {
+    follicular: 16,
+    earlyluteal: 25,
+    lateluteal: 33,
+    menstruation: 36,
+    midluteal: 29,
+    ovulation: 5, //TODO
+  }
   const radius =
     Math.min(adjustedWidth - 2 * MARGIN_X, adjustedHeight - 2 * MARGIN_Y) / 2;
   const innerRadius = radius / 1.1;
@@ -42,7 +66,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
 
   const totalDays = d3.sum(data, (d) => d.value);
   const currentDayAngleStart =
-    (currentDay / totalDays) * 2 * Math.PI - Math.PI / 2;
+    (phaseToPositionMap[menstrualPhase] / totalDays) * 2 * Math.PI - Math.PI / 2;
   const currentDayAngleEnd =
     currentDayAngleStart + (1 / totalDays) * 2 * Math.PI;
   let currentDayColor  = "#ea404e";
@@ -98,6 +122,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
       <g transform={`translate(${width}, ${height})`}>
         {shapes}
         <path
+          className="animate-pulse"
           d={currentDayArc()}
           fill={currentDayColor} // Dynamically set color for the current day
         />
