@@ -66,17 +66,17 @@ export default function StatsComponent() {
         {data ? (
           <>
             <StatsCard
-              svgIllustration={MoodImage}
-              title={'Mood'}
+            /*  svgIllustration={MoodImage} */
+              title={'Skills'}
               details={data.mood_resp}
             />
             <StatsCard
-              svgIllustration={DietImage}
+           /*   svgIllustration={DietImage} */
               title={'Nourish'}
               details={data.nutrition_resp}
             />
             <StatsCard
-              svgIllustration={WorkoutImage}
+            /*  svgIllustration={WorkoutImage} */
               title={'Movement'}
               details={data.exercise_resp}
             />
