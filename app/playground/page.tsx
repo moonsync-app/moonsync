@@ -4,7 +4,7 @@ import Link from 'next/link';
 import MainInput from './main-input';
 import SpeedDial from '../components/ui/speed-dial';
 
-const poppins = Poppins({ weight: '400', subsets: ['latin'] });
+const poppins = Poppins({ weight: '600', subsets: ['latin'] });
 const poppinsThin = Poppins({ weight: '200', subsets: ['latin'] });
 
 const PerplexityComponent = () => {

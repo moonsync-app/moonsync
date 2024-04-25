@@ -3,7 +3,7 @@
 import { Poppins } from 'next/font/google';
 import Link from 'next/link';
 
-const poppins = Poppins({ weight: '400', subsets: ['latin'] });
+const poppins = Poppins({ weight: '600', subsets: ['latin'] });
 import { useState } from 'react';
 
 export default function MainInput() {
