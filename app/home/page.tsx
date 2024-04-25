@@ -13,7 +13,6 @@ export default async function Page() {
     <main className={`flex min-h-screen flex-col items-center gap-10 p-4 background-gradient ${poppins.className}`}>
       <SpeedDial/>
       <Header/>
-      <Link href="/playground">Go to chat</Link>
       <StatsComponent />
     </main>
   );

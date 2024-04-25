@@ -18,7 +18,7 @@ export default function SpeedDial() {
         id="speed-dial-menu-top-left"
         className="flex flex-col items-center mt-4 space-y-2"
       >
-        <Link href={'/home'}>
+        <Link href={'/'}>
           <button
             type="button"
             data-tooltip-target="tooltip-share"
