@@ -61,7 +61,8 @@ export default function StatsComponent() {
 
 
   return (
-    <div className="absolute inset-x-0 bottom-0 w-full mb-2">
+    <div className="w-full mt-8"> 
+      {/* <div className="absolute inset-x-0 bottom-0 w-full mb-2"> */}
       <div className="grid grid-cols-3 justify-items-center ">
         {data ? (
           <>
@@ -84,17 +85,17 @@ export default function StatsComponent() {
         ) : (
           <>
             <StatsCard
-              svgIllustration={MoodImage}
+            /*  svgIllustration={MoodImage} */
               title={'Mood'}
               details={null}
             />
             <StatsCard
-              svgIllustration={DietImage}
+           /*   svgIllustration={DietImage} */
               title={'Nourish'}
               details={null}
             />
             <StatsCard
-              svgIllustration={WorkoutImage}
+           /*   svgIllustration={WorkoutImage} */
               title={'Movement'}
               details={null}
             />
