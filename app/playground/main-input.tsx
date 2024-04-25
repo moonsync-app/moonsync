@@ -11,7 +11,7 @@ export default function MainInput() {
 
   return (
     <>
-      <div className="rounded-t-lg dark:bg-gray-800">
+      <div className="rounded-t-lg dark:bg-gray-800 font-bold">
         <textarea
           rows={4}
           id="comment"

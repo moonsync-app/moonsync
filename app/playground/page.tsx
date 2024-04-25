@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Poppins } from 'next/font/google';
 import Link from 'next/link';
 import MainInput from './main-input';
+import SpeedDial from '../components/ui/speed-dial';
 
 const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 const poppinsThin = Poppins({ weight: '200', subsets: ['latin'] });
 
 const PerplexityComponent = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center gap-4 p-24 background-gradient">
+    <div className="flex min-h-screen flex-col items-center gap-4 p-24 background-gradient ">
+      <SpeedDial />
       <h1 className={`text-4xl font-bold text-center ${poppins.className}`}>
         Understand Yourself Better
       </h1>
@@ -17,7 +19,7 @@ const PerplexityComponent = () => {
       </h2>
       <div className="mt-10 mb-4 rounded-lg w-3/4">
         <MainInput />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 font-bold">
           <Link
             href={{
               pathname: '/chat',
