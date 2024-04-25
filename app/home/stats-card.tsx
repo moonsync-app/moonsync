@@ -6,14 +6,7 @@ import Image from 'next/image';
 
 export default function StatsCard({ title, details }) {
   return (
-     <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12" 
-         style={{ 
-           backgroundColor: 'rgba(109, 196, 161, 0.5)', 
-           marginTop: '-50px', 
-           paddingBottom: '20px', 
-           minHeight: '100px',
-           zIndex: '10' 
-         }}>
+     <div className="relative flex flex-col -mt-8 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12" style={{ backgroundColor: 'rgba(188, 247, 208, 0.5)' }}>
       {/* <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12"> */}
       {/*  <div className="relative h-48 mx-4 -mt-8 overflow-hidden text-white shadow-sm bg-clip-border rounded-xl"> */}
         {/* <Image src={svgIllustration} alt="card-image" className="object-fill" /> */}
