@@ -61,7 +61,7 @@ export default function StatsComponent() {
 
 
   return (
-    <div className="w-full mt-8"> 
+    <div className="w-full mt-12 pb-8"> 
       {/* <div className="absolute inset-x-0 bottom-0 w-full mb-2"> */}
       <div className="grid grid-cols-3 justify-items-center ">
         {data ? (
