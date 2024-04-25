@@ -27,7 +27,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
       .then((response) => response.json())
       .then((data) => {
         console.log('biodata', data)
-        setMenstrualPhase('Late Luteal'.toLowerCase().replace(/ /g,''))
+        setMenstrualPhase(data['menstrual_phase'].toLowerCase().replace(/ /g,''))
       });
   }, [])
 
