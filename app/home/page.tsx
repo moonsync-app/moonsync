@@ -11,7 +11,9 @@ const poppinsThin = Poppins({ weight: '200', subsets: ['latin'] });
 export default async function Page() {
   return (
     <main className={`flex min-h-screen flex-col items-center gap-10 p-4 background-gradient ${poppins.className}`}>
-      <SpeedDial/>
+      <div className="scale-125 transform">
+        <SpeedDial />
+      </div>
       <Header/>
       <StatsComponent />
     </main>
