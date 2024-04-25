@@ -93,7 +93,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
       width={adjustedWidth}
       height={adjustedHeight}
       style={{ display: "inline-block" }}
-      className="-mt-16"
+      className="-mt-24"
     >
       <g transform={`translate(${width}, ${height})`}>
         {shapes}
