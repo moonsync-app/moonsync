@@ -4,5 +4,5 @@ export const data = [
   { name: "Sustain", value: 8 },
   { name: "Reflect", value: 9 },
 ];
-
-export const currentDay = 20; // Add the currentDay variable
+//TODO needs to be dynamic
+export const currentDay = 13; // Add the currentDay variable
