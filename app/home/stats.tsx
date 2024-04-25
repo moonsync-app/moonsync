@@ -12,22 +12,53 @@ interface Data {
   exercise_resp: string;
 }
 
+function setWithExpiry(data: Data) {
+  const now = new Date();
+  const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+  const item = {
+    data: data,
+    expiry: midnight.getTime()
+  };
+  localStorage.setItem("statsData", JSON.stringify(item));
+}
+
+function getWithExpiry(key) {
+  const itemStr = localStorage.getItem(key);
+  if (!itemStr) {
+    return null;
+  }
+  const item = JSON.parse(itemStr);
+  const now = new Date();
+  if (now.getTime() > item.expiry) {
+    localStorage.removeItem(key);
+    return null;
+  }
+  return item;
+}
+
 export default function StatsComponent() {
   const [data, setData] = useState<Data | null>(null);
 
   useEffect(() => {
+    const storedData = getWithExpiry('statsData');
+
+    if (storedData) {
+      setData(storedData.data);
+      return;
+    }
+
     fetch('https://moonsync.app/api/dashboard', {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        setWithExpiry(data);
+        setData(data);
+      });
   }, []);
 
-  useEffect(() => {
-    console.log('Data : ', data);
-  }, [data]);
 
   return (
     <div className="absolute inset-x-0 bottom-0 w-full mb-2">
