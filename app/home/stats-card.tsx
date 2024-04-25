@@ -16,7 +16,7 @@ export default function StatsCard({ title, details }) {
           {title}
         </h5>
         {details ? (
-          <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit h-36 overflow-auto">
+          <p className="block font-sans text-sm antialiased font-light leading-relaxed text-inherit h-36 overflow-auto">
             {details}
           </p>
         ) : (
