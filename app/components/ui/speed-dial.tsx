@@ -1,7 +1,17 @@
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function SpeedDial() {
+
+  const [isOpened, setIsOpened] = useState<Boolean>(false);
+
+  const onClickHander = () => {
+    console.log('clicked');
+    setIsOpened(!isOpened); 
+  }
+
   return (
     <div data-dial-init className="fixed top-6 start-6 group">
       <button
@@ -9,7 +19,8 @@ export default function SpeedDial() {
         data-dial-toggle="speed-dial-menu-top-left"
         aria-controls="speed-dial-menu-top-left"
         aria-expanded="false"
-        className="flex items-center justify-center text-white bg-green-200 rounded-full w-14 h-14 hover:bg-green-400 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
+        onClick={onClickHander}
+        className={`flex items-center justify-center text-white ${isOpened? 'bg-green-600' : 'bg-green-200'} rounded-full w-14 h-14  focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800`}
       >
         <Image src={'/moon.png'} width={40} height={40} alt="MoonSync Logo" />
         <span className="sr-only">Open actions menu</span>
@@ -23,7 +34,7 @@ export default function SpeedDial() {
             type="button"
             data-tooltip-target="tooltip-share"
             data-tooltip-placement="left"
-            className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
           >
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
@@ -51,7 +62,7 @@ export default function SpeedDial() {
             type="button"
             data-tooltip-target="tooltip-print"
             data-tooltip-placement="left"
-            className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
           >
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
@@ -78,7 +89,7 @@ export default function SpeedDial() {
             type="button"
             data-tooltip-target="tooltip-print"
             data-tooltip-placement="left"
-            className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400"
+            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
           >
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
