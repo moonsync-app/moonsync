@@ -12,14 +12,14 @@ export default function SpeedDial() {
   };
 
   return (
-    <div data-dial-init className="fixed top-6 start-6 group">
+    <div data-dial-init className="fixed top-5 start-5 group">
       <button
         type="button"
         data-dial-toggle="speed-dial-menu-top-left"
         aria-controls="speed-dial-menu-top-left"
         aria-expanded="false"
         onClick={onClickHander}
-        className={`flex items-center justify-center text-white rounded-full w-14 h-14  focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800`}
+        className={`flex items-center justify-center text-white rounded-full w-8 h-8 md:w-14 md:h-14 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800`}
       >
         <svg
           width="120px"
@@ -72,8 +72,8 @@ export default function SpeedDial() {
           >
             <Image
               src={'/moon.png'}
-              width={36}
-              height={36}
+              width={28}
+              height={28}
               alt="MoonSync Logo"
             />
             {/* <svg

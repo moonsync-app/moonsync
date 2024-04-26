@@ -9,7 +9,7 @@ const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 
 export default async function Page() {
   return (
-    <main className={`flex min-h-screen flex-col items-center p-4 background-gradient ${poppins.className}`}>
+    <main className={`flex min-h-screen flex-col items-center p-4 background-gradient ${poppins.className} pt-16`} >
       <SpeedDial/>
       <Header/>
       {/* TODO make dynamic */}
