@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <div className="text-center text-black">
-      <h1 className="text-2xl font-extrabold text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
+      <h1 className="text-2xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-yellow-100">
           Good Morning,
         </span>{' '}
