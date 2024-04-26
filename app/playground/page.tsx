@@ -9,7 +9,7 @@ const poppinsThin = Poppins({ weight: '200', subsets: ['latin'] });
 
 const PerplexityComponent = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center gap-4 p-24 background-gradient ">
+    <div className="flex min-h-screen flex-col items-center gap-4 p-12 background-gradient ">
       <SpeedDial />
       <h1 className={`text-4xl font-bold text-center ${poppins.className}`}>
         Understand Yourself Better
@@ -17,9 +17,9 @@ const PerplexityComponent = () => {
       <h2 className={`text-3xl mb-10 text-center ${poppinsThin.className}`}>
         Backed by your biometrics, science and other women like you ❤!
       </h2>
-      <div className="mt-10 mb-4 rounded-lg w-3/4">
+      <div className="mt-10 mb-4 rounded-lg w-5/6">
         <MainInput />
-        <div className="grid grid-cols-2 gap-4 font-bold">
+        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 font-bold">
           <Link
             href={{
               pathname: '/chat',

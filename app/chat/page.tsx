@@ -7,13 +7,13 @@ import SpeedDial from '../components/ui/speed-dial';
 export default function Home() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center gap-10 p-24 background-gradient">
+      <main className="flex min-h-screen flex-col items-center gap-10 p-12 background-gradient">
         <SpeedDial/>
-        <Header />
+        {/* <Header /> */}
         <Suspense>
           <ChatSection />
         </Suspense>
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </>
   );

@@ -1,16 +1,15 @@
-"use client"
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function SpeedDial() {
-
   const [isOpened, setIsOpened] = useState<Boolean>(false);
 
   const onClickHander = () => {
     console.log('clicked');
-    setIsOpened(!isOpened); 
-  }
+    setIsOpened(!isOpened);
+  };
 
   return (
     <div data-dial-init className="fixed top-6 start-6 group">
@@ -20,9 +19,44 @@ export default function SpeedDial() {
         aria-controls="speed-dial-menu-top-left"
         aria-expanded="false"
         onClick={onClickHander}
-        className={`flex items-center justify-center text-white ${isOpened? 'bg-green-600' : 'bg-green-200'} rounded-full w-14 h-14  focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800`}
+        className={`flex items-center justify-center text-white rounded-full w-14 h-14  focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800`}
       >
-        <Image src={'/moon.png'} width={40} height={40} alt="MoonSync Logo" />
+        <svg
+          width="120px"
+          height="120px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke="#ffffff"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            {' '}
+            <path
+              d="M4 7L7 7M20 7L11 7"
+              stroke="#ffffff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            ></path>{' '}
+            <path
+              d="M20 17H17M4 17L13 17"
+              stroke="#ffffff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            ></path>{' '}
+            <path
+              d="M4 12H7L20 12"
+              stroke="#ffffff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            ></path>{' '}
+          </g>
+        </svg>
         <span className="sr-only">Open actions menu</span>
       </button>
       <div
@@ -36,7 +70,13 @@ export default function SpeedDial() {
             data-tooltip-placement="left"
             className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
           >
-            <svg
+            <Image
+              src={'/moon.png'}
+              width={36}
+              height={36}
+              alt="MoonSync Logo"
+            />
+            {/* <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +92,7 @@ export default function SpeedDial() {
                 strokeWidth="2"
                 d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"
               />
-            </svg>
+            </svg> */}
             <span className="sr-only">Share</span>
           </button>
         </Link>
