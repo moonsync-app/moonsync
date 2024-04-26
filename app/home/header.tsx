@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <div className="text-center text-black">
-      <h1 className="text-2xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
+      <h1 className="text-2xl font-extrabold text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-yellow-100">
           Good Morning,
         </span>{' '}
@@ -40,18 +40,18 @@ export default function Header() {
       <br />
       {data ? (
         <>
-          <h2 className="mb-2 text-2xl">
+          <h2 className="mb-2 text-lg sm:text-xl md:text-2xl">
             {`Its a beautiful day in New York City 🗽. The current temperature `} 
             <span className='px-2 text-white bg-blue-600 rounded'>
             {`${data.temp_f}${'\u00b0'}F and ${data.condition.toLowerCase()} ⛅️.`}
             </span>
           </h2>
-          <h2 className="mb-2 text-2xl">
+          <h2 className="mb-2 text-lg sm:text-xl md:text-2xl">
             {`Looks like you got a `} 
             <span className='px-2 text-white bg-green-600 rounded'>great sleep 😴</span>
             <span>{`last night of ${data.sleep}.`}</span>
           </h2>
-          <h2 className="mb-2 text-2xl">
+          <h2 className="mb-2 text-lg sm:text-xl md:text-2xl">
 
             {`You are currently in your`} 
             <span className='px-2 text-white bg-yellow-300 rounded'>{`${data.menstrual_phase} phase`}</span>
