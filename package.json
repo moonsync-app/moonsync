@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.42.7",
     "@vercel/edge": "^1.1.1",
     "ai": "^2.2.37",
     "aws4": "^1.12.0",
