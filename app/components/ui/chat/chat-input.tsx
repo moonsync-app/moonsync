@@ -46,7 +46,7 @@ export default function ChatInput(
 
   const handleUploadFile = async (file: File) => {
     try {
-      if (props.multiModal && file.type.startsWith("image/")) {
+      if (props.multiModal) {
         return await handleUploadImageFile(file);
       }
       props.onFileUpload?.(file);
@@ -75,6 +75,7 @@ export default function ChatInput(
         <FileUploader
           onFileUpload={handleUploadFile}
           onFileError={props.onFileError}
+          config={{allowedExtensions: ["image/png", "image/jpeg"], disabled: false}}
         />
         <Button type="submit" disabled={props.isLoading} ref={props.currRef}>
           Send message
