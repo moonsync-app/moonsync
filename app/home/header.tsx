@@ -12,11 +12,13 @@ interface BiometricData {
   temp_f: number;
 }
 
+const backendDomain = process.env.BACKEND_DOMAIN;
+
 export default function Header() {
   const [data, setData] = useState<BiometricData | null>(null);
 
   useEffect(() => {
-    fetch('https://moonsync.app/api/biometrics', {
+    fetch(`https://${backendDomain}/api/biometrics`, {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },

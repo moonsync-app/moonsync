@@ -15,11 +15,13 @@ const INFLEXION_PADDING = 15; // Space between donut and label inflexion point
 
 const colors = ["#ea404e", "#1a5c56", "#f87c00", "#0092bb"];
 
+const backendDomain = process.env.BACKEND_DOMAIN;
+
 export const DonutChart = ({ width, height }: DonutChartProps) => {
   const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('https://moonsync.app/api/biometrics', {
+    fetch(`https://${backendDomain}/api/biometrics`, {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },

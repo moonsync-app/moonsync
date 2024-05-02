@@ -36,6 +36,8 @@ function getWithExpiry(key) {
   return item;
 }
 
+const backendDomain = process.env.BACKEND_DOMAIN;
+
 export default function StatsComponent() {
   const [data, setData] = useState<Data | null>(null);
 
@@ -47,7 +49,7 @@ export default function StatsComponent() {
       return;
     }
 
-    fetch('https://moonsync.app/api/dashboard', {
+    fetch(`https://${backendDomain}/api/dashboard`, {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },
