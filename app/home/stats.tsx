@@ -36,7 +36,7 @@ function getWithExpiry(key) {
   return item;
 }
 
-const backendDomain = process.env.BACKEND_DOMAIN;
+const backendDomain = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
 
 export default function StatsComponent() {
   const [data, setData] = useState<Data | null>(null);
