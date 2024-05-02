@@ -124,7 +124,7 @@ export default function SpeedDial() {
           </button>
         </Link>
 
-        <Link href={'https://github.com/moonsync-app'}>
+        <Link href={'https://github.com/moonsync-app/moonsync/tree/gemini'}>
           <button
             type="button"
             data-tooltip-target="tooltip-print"
