@@ -12,7 +12,7 @@ interface BiometricData {
   temp_f: number;
 }
 
-const backendDomain = process.env.BACKEND_DOMAIN;
+const backendDomain = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
 
 export default function Header() {
   const [data, setData] = useState<BiometricData | null>(null);
