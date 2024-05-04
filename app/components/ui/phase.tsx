@@ -15,13 +15,13 @@ const INFLEXION_PADDING = 15; // Space between donut and label inflexion point
 
 const colors = ["#ea404e", "#1a5c56", "#f87c00", "#0092bb"];
 
-const backendDomain = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
+const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
 export const DonutChart = ({ width, height }: DonutChartProps) => {
   const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch(`https://${backendDomain}/api/biometrics`, {
+    fetch(`${backendHost}/api/biometrics`, {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },
@@ -115,7 +115,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
 
   return (
     <svg
-    
+
       width={adjustedWidth}
       height={adjustedHeight}
       style={{ display: "inline-block" }}

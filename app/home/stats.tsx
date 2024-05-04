@@ -36,7 +36,7 @@ function getWithExpiry(key) {
   return item;
 }
 
-const backendDomain = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
+const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
 export default function StatsComponent() {
   const [data, setData] = useState<Data | null>(null);
@@ -49,7 +49,7 @@ export default function StatsComponent() {
       return;
     }
 
-    fetch(`https://${backendDomain}/api/dashboard`, {
+    fetch(`${backendHost}/api/dashboard`, {
       method: 'POST',
       body: JSON.stringify({ key: '42' }),
       headers: { 'Content-Type': 'application/json' },
@@ -63,7 +63,7 @@ export default function StatsComponent() {
 
 
   return (
-    <div className="w-full mt-12 pb-8"> 
+    <div className="w-full mt-12 pb-8">
       {/* <div className="absolute inset-x-0 bottom-0 w-full mb-2"> */}
       <div className="grid sm:grid-cols-1 gap-10 md:grid-cols-1 lg:grid-cols-3 justify-items-center ">
         {data ? (
