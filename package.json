@@ -9,6 +9,7 @@
     "generate": "node app/api/chat/engine/generate.mjs"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.0.6",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/edge": "^1.1.1",
     "ai": "^2.2.37",
