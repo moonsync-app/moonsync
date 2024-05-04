@@ -87,6 +87,11 @@
         rgba(186, 186, 233, 0.53) 0,
         transparent 50%
       ),
-      radial-gradient(circle, rgba(213,214,125,1) 15%, rgba(109,196,161,1) 32%, rgba(55,185,132,1) 48%);
+      radial-gradient(
+        circle,
+        rgba(213, 214, 125, 1) 15%,
+        rgba(109, 196, 161, 1) 32%,
+        rgba(55, 185, 132, 1) 48%
+      );
   }
 }

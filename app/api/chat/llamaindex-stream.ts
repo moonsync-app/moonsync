@@ -5,8 +5,8 @@ import {
   experimental_StreamData,
   trimStartOfStreamHelper,
   type AIStreamCallbacksAndOptions,
-} from 'ai';
-import { Response } from 'llamaindex';
+} from "ai";
+import { Response } from "llamaindex";
 
 type ParserOptions = {
   image_url?: string;
@@ -15,7 +15,7 @@ type ParserOptions = {
 function createParser(
   res: AsyncIterable<Response>,
   data: experimental_StreamData,
-  opts?: ParserOptions
+  opts?: ParserOptions,
 ) {
   const it = res[Symbol.asyncIterator]();
   const trimStartOfStream = trimStartOfStreamHelper();
@@ -24,7 +24,7 @@ function createParser(
       // if image_url is provided, send it via the data stream
       if (opts?.image_url) {
         const message: JSONValue = {
-          type: 'image_url',
+          type: "image_url",
           image_url: {
             url: opts.image_url,
           },
@@ -43,7 +43,7 @@ function createParser(
         return;
       }
 
-      const text = trimStartOfStream(value.response ?? '');
+      const text = trimStartOfStream(value.response ?? "");
       if (text) {
         controller.enqueue(text);
       }
@@ -56,7 +56,7 @@ export function LlamaIndexStream(
   opts?: {
     callbacks?: AIStreamCallbacksAndOptions;
     parserOptions?: ParserOptions;
-  }
+  },
 ): { stream: ReadableStream; data: experimental_StreamData } {
   const data = new experimental_StreamData();
   return {

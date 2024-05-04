@@ -6,8 +6,8 @@ import {
   storageContextFromDefaults,
   TogetherEmbedding,
   VectorStoreIndex,
-} from 'llamaindex';
-import { CHUNK_OVERLAP, CHUNK_SIZE, STORAGE_CACHE_DIR } from './constants.mjs';
+} from "llamaindex";
+import { CHUNK_OVERLAP, CHUNK_SIZE, STORAGE_CACHE_DIR } from "./constants.mjs";
 
 async function getDataSource(llm: LLM) {
   const serviceContext = serviceContextFromDefaults({
@@ -21,11 +21,11 @@ async function getDataSource(llm: LLM) {
   });
 
   const numberOfDocs = Object.keys(
-    (storageContext.docStore as SimpleDocumentStore).toDict()
+    (storageContext.docStore as SimpleDocumentStore).toDict(),
   ).length;
   if (numberOfDocs === 0) {
     throw new Error(
-      `StorageContext is empty - call 'npm run generate' to generate the storage first`
+      `StorageContext is empty - call 'npm run generate' to generate the storage first`,
     );
   }
   return await VectorStoreIndex.init({
