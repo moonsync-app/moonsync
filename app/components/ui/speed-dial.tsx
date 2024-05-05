@@ -22,7 +22,7 @@ export default function SpeedDial() {
   };
 
   return (
-    <div data-dial-init className="fixed top-5 start-5 group">
+    <div data-dial-init className="fixed top-28 md:top-16 start-7 group">
       <button
         type="button"
         data-dial-toggle="speed-dial-menu-top-left"
