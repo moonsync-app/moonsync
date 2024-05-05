@@ -16,9 +16,8 @@ export default function SpeedDial() {
     setIsOpened(!isOpened);
   };
 
-  const handleSignOutClick = async () => {
-    await signOut({});
-    await redirectToSignIn();
+  const handleSignOutClick = () => {
+    signOut(() => router.push('/sign-in'));
   };
 
   return (
