@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 export default function SpeedDial() {
   const [isOpened, setIsOpened] = useState<Boolean>(false);
 
-  const { signOut } = useClerk();
+  const { signOut, redirectToSignIn } = useClerk();
   const router = useRouter();
 
   const onClickHander = () => {
@@ -17,8 +17,9 @@ export default function SpeedDial() {
     setIsOpened(!isOpened);
   };
 
-  const handleSignOutClick = () => {
-    signOut().then(() => router.push('/'));
+  const handleSignOutClick = async () => {
+    await signOut({});
+    await redirectToSignIn();
   };
 
   return (
