@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useMemo, useState, useEffect } from "react";
 import * as d3 from "d3";
-import { data, currentDay } from "./data";
+import { data } from "./data";
 
 type DonutChartProps = {
   width: number;
@@ -18,20 +18,22 @@ const colors = ["#ea404e", "#1a5c56", "#f87c00", "#0092bb"];
 const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
 export const DonutChart = ({ width, height }: DonutChartProps) => {
-  const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null)
+  const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(`${backendHost}/api/biometrics`, {
-      method: 'POST',
-      body: JSON.stringify({ key: '42' }),
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      body: JSON.stringify({ key: "42" }),
+      headers: { "Content-Type": "application/json" },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('biodata', data)
-        setMenstrualPhase(data['menstrual_phase'].toLowerCase().replace(/ /g,''))
+        console.log("biodata", data);
+        setMenstrualPhase(
+          data["menstrual_phase"].toLowerCase().replace(/ /g, ""),
+        );
       });
-  }, [])
+  }, []);
 
   const adjustedWidth = width * 2;
   const adjustedHeight = height * 2;
@@ -42,7 +44,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
     menstruation: 36,
     midluteal: 29,
     ovulation: 5, //TODO
-  }
+  };
   const radius =
     Math.min(adjustedWidth - 2 * MARGIN_X, adjustedHeight - 2 * MARGIN_Y) / 2;
   const innerRadius = radius / 1.1;
@@ -68,10 +70,11 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
 
   const totalDays = d3.sum(data, (d) => d.value);
   const currentDayAngleStart =
-    (phaseToPositionMap[menstrualPhase] / totalDays) * 2 * Math.PI - Math.PI / 2;
+    (phaseToPositionMap[menstrualPhase] / totalDays) * 2 * Math.PI -
+    Math.PI / 2;
   const currentDayAngleEnd =
     currentDayAngleStart + (1 / totalDays) * 2 * Math.PI;
-  let currentDayColor  = "#ea404e";
+  let currentDayColor = "#ea404e";
   pie.forEach((slice, i) => {
     if (
       currentDayAngleStart >= slice.startAngle &&
@@ -115,7 +118,6 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
 
   return (
     <svg
-
       width={adjustedWidth}
       height={adjustedHeight}
       style={{ display: "inline-block" }}

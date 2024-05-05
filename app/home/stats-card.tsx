@@ -1,15 +1,17 @@
-'use client';
-import Image from 'next/image';
+"use client";
 {
   /* <div className="relative h-48 mx-4 -mt-16 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40"> */
 }
 
 export default function StatsCard({ title, details }) {
   return (
-     <div className="relative flex flex-col sm:mt-16 lg:-mt-8 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12" style={{ backgroundColor: 'rgba(188, 247, 208, 0.5)' }}>
+    <div
+      className="relative flex flex-col sm:mt-16 lg:-mt-8 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12"
+      style={{ backgroundColor: "rgba(188, 247, 208, 0.5)" }}
+    >
       {/* <div className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12"> */}
       {/*  <div className="relative h-48 mx-4 -mt-8 overflow-hidden text-white shadow-sm bg-clip-border rounded-xl"> */}
-        {/* <Image src={svgIllustration} alt="card-image" className="object-fill" /> */}
+      {/* <Image src={svgIllustration} alt="card-image" className="object-fill" /> */}
       {/*  </div> */}
       <div className="p-6">
         <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 text-center">

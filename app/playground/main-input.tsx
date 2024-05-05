@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { Poppins } from 'next/font/google';
-import Link from 'next/link';
+import { Poppins } from "next/font/google";
+import Link from "next/link";
 
-const poppins = Poppins({ weight: '600', subsets: ['latin'] });
-import { useState } from 'react';
+const poppins = Poppins({ weight: "600", subsets: ["latin"] });
+import { useState } from "react";
 
 export default function MainInput() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function MainInput() {
       <div className="flex justify-end ml-2 mb-14">
         <Link
           href={{
-            pathname: '/chat',
+            pathname: "/chat",
             query: { query },
           }}
         >

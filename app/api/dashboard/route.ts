@@ -1,7 +1,4 @@
-import { StreamingTextResponse } from "ai";
-import { ChatMessage, MessageContent } from "llamaindex";
 import { NextRequest, NextResponse } from "next/server";
-import { geolocation } from "@vercel/edge";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";

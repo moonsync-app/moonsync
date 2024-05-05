@@ -1,4 +1,8 @@
 {
   "extends": "next/core-web-vitals",
-  "plugins": ["prettier"]
+  "plugins": ["prettier", "unused-imports"],
+  "rules": {
+    "prettier/prettier": "error",
+    "unused-imports/no-unused-imports": "error"
+  }
 }

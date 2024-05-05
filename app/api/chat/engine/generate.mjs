@@ -4,16 +4,16 @@ import {
   storageContextFromDefaults,
   VectorStoreIndex,
   TogetherEmbedding,
-} from 'llamaindex';
+} from "llamaindex";
 
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 
 import {
   CHUNK_OVERLAP,
   CHUNK_SIZE,
   STORAGE_CACHE_DIR,
   STORAGE_DIR,
-} from './constants.mjs';
+} from "./constants.mjs";
 
 // Load environment variables from local .env file
 dotenv.config();
@@ -51,5 +51,5 @@ async function generateDatasource(serviceContext) {
   });
 
   await generateDatasource(serviceContext);
-  console.log('Finished generating storage.');
+  console.log("Finished generating storage.");
 })();

@@ -1,10 +1,9 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import { UserButton } from '@clerk/nextjs';
-import { useClerk } from '@clerk/nextjs';
-import { useRouter } from 'next/navigation';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { useClerk } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 export default function SpeedDial() {
   const [isOpened, setIsOpened] = useState<Boolean>(false);
@@ -13,7 +12,7 @@ export default function SpeedDial() {
   const router = useRouter();
 
   const onClickHander = () => {
-    console.log('clicked');
+    console.log("clicked");
     setIsOpened(!isOpened);
   };
 
@@ -47,25 +46,25 @@ export default function SpeedDial() {
             strokeLinejoin="round"
           ></g>
           <g id="SVGRepo_iconCarrier">
-            {' '}
+            {" "}
             <path
               d="M4 7L7 7M20 7L11 7"
               stroke="#ffffff"
               strokeWidth="1.5"
               strokeLinecap="round"
-            ></path>{' '}
+            ></path>{" "}
             <path
               d="M20 17H17M4 17L13 17"
               stroke="#ffffff"
               strokeWidth="1.5"
               strokeLinecap="round"
-            ></path>{' '}
+            ></path>{" "}
             <path
               d="M4 12H7L20 12"
               stroke="#ffffff"
               strokeWidth="1.5"
               strokeLinecap="round"
-            ></path>{' '}
+            ></path>{" "}
           </g>
         </svg>
         <span className="sr-only">Open actions menu</span>
@@ -74,15 +73,15 @@ export default function SpeedDial() {
         id="speed-dial-menu-top-left"
         className="flex flex-col items-center mt-4 space-y-2"
       >
-        <Link href={'/'}>
+        <Link href={"/"}>
           <button
             type="button"
             data-tooltip-target="tooltip-share"
             data-tooltip-placement="left"
-            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
+            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? "visible opacity-100" : "invisible opacity-0"} `}
           >
             <Image
-              src={'/moon.png'}
+              src={"/moon.png"}
               width={28}
               height={28}
               alt="MoonSync Logo"
@@ -108,12 +107,12 @@ export default function SpeedDial() {
           </button>
         </Link>
 
-        <Link href={'/playground'}>
+        <Link href={"/playground"}>
           <button
             type="button"
             data-tooltip-target="tooltip-print"
             data-tooltip-placement="left"
-            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
+            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? "visible opacity-100" : "invisible opacity-0"} `}
           >
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
@@ -135,12 +134,12 @@ export default function SpeedDial() {
           </button>
         </Link>
 
-        <Link href={'https://github.com/moonsync-app'}>
+        <Link href={"https://github.com/moonsync-app"}>
           <button
             type="button"
             data-tooltip-target="tooltip-print"
             data-tooltip-placement="left"
-            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
+            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? "visible opacity-100" : "invisible opacity-0"} `}
           >
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
@@ -160,46 +159,46 @@ export default function SpeedDial() {
           </button>
         </Link>
 
-          <button
-            onClick={handleSignOutClick}
-            type="button"
-            data-tooltip-target="tooltip-print"
-            data-tooltip-placement="left"
-            className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? 'visible opacity-100' : 'invisible opacity-0'} `}
+        <button
+          onClick={handleSignOutClick}
+          type="button"
+          data-tooltip-target="tooltip-print"
+          data-tooltip-placement="left"
+          className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? "visible opacity-100" : "invisible opacity-0"} `}
+        >
+          <svg
+            fill="#000000"
+            height="24"
+            width="24"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 384.971 384.971"
+            xmlSpace="preserve"
           >
-            <svg
-              fill="#000000"
-              height="24"
-              width="24"
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 384.971 384.971"
-              xmlSpace="preserve"
-            >
-              <g>
-                <g id="Sign_Out">
-                  <path
-                    d="M180.455,360.91H24.061V24.061h156.394c6.641,0,12.03-5.39,12.03-12.03s-5.39-12.03-12.03-12.03H12.03
+            <g>
+              <g id="Sign_Out">
+                <path
+                  d="M180.455,360.91H24.061V24.061h156.394c6.641,0,12.03-5.39,12.03-12.03s-5.39-12.03-12.03-12.03H12.03
 			C5.39,0.001,0,5.39,0,12.031V372.94c0,6.641,5.39,12.03,12.03,12.03h168.424c6.641,0,12.03-5.39,12.03-12.03
 			C192.485,366.299,187.095,360.91,180.455,360.91z"
-                  />
-                  <path
-                    d="M381.481,184.088l-83.009-84.2c-4.704-4.752-12.319-4.74-17.011,0c-4.704,4.74-4.704,12.439,0,17.179l62.558,63.46H96.279
+                />
+                <path
+                  d="M381.481,184.088l-83.009-84.2c-4.704-4.752-12.319-4.74-17.011,0c-4.704,4.74-4.704,12.439,0,17.179l62.558,63.46H96.279
 			c-6.641,0-12.03,5.438-12.03,12.151c0,6.713,5.39,12.151,12.03,12.151h247.74l-62.558,63.46c-4.704,4.752-4.704,12.439,0,17.179
 			c4.704,4.752,12.319,4.752,17.011,0l82.997-84.2C386.113,196.588,386.161,188.756,381.481,184.088z"
-                  />
-                </g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
+                />
               </g>
-            </svg>
-          </button>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+            </g>
+          </svg>
+        </button>
       </div>
     </div>
   );
