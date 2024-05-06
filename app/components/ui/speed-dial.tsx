@@ -17,7 +17,7 @@ export default function SpeedDial() {
   };
 
   const handleSignOutClick = () => {
-    signOut(() => router.push('/sign-in'));
+    signOut(() => router.push("/sign-in"));
   };
 
   return (
