@@ -1,5 +1,6 @@
+"use client";
 import { Loader2 } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ChatActions from "./chat-actions";
 import ChatMessage from "./chat-message";
@@ -34,6 +35,34 @@ export default function ChatMessages(
     scrollToBottom();
   }, [messageLength, lastMessage]);
 
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [showLastMessage, setShowLastMessage] = useState(false);
+
+  const loadingMessages = [
+    "Looking into your biometrics",
+    "Oh btw, you look great today",
+    "Querying the knowledge engines",
+    "Compiling the answer for you",
+  ];
+
+  useEffect(() => {
+    let interval: string | number | NodeJS.Timeout | undefined;
+
+    if (isPending && !showLastMessage) {
+      interval = setInterval(() => {
+        setMessageIndex((prevIndex) => {
+          const nextIndex = prevIndex + 1;
+          if (nextIndex === loadingMessages.length) {
+            setShowLastMessage(true);
+          }
+          return nextIndex % loadingMessages.length;
+        });
+      }, 4000);
+    }
+
+    return () => clearInterval(interval);
+  }, [isPending, showLastMessage]);
+
   return (
     <div className="w-full rounded-xl bg-white p-4 shadow-xl pb-0">
       <div
@@ -44,8 +73,13 @@ export default function ChatMessages(
           <ChatMessage key={m.id} {...m} />
         ))}
         {isPending && (
-          <div className="flex justify-center items-center pt-10">
+          <div className="flex flex-col justify-center items-center pt-10">
             <Loader2 className="h-4 w-4 animate-spin" />
+            <div className="italic">
+              {showLastMessage
+                ? loadingMessages[loadingMessages.length - 1]
+                : loadingMessages[messageIndex]}
+            </div>
           </div>
         )}
       </div>
