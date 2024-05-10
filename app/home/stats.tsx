@@ -73,7 +73,7 @@ export default function StatsComponent() {
           <>
             <StatsCard
               /*  svgIllustration={MoodImage} */
-              title={"Skills"}
+              title={"Energy"}
               details={data.mood_resp}
             />
             <StatsCard
