@@ -16,7 +16,7 @@ export default function MainInput() {
           rows={4}
           id="comment"
           className={`w-full p-2 text-lg text-white border rounded-lg focus:outline-none bg-white backdrop-blur-lg bg-opacity-15 placeholder-gray-100 ${poppins.className}`}
-          placeholder="Lisa, How can I help you today?"
+          placeholder="Ligia, How can I help you today?"
           required
           value={query}
           onChange={(e) => setQuery(e.target.value)}

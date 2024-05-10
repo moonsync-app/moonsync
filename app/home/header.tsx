@@ -36,7 +36,7 @@ export default function Header() {
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-yellow-100">
           Good Morning,
         </span>{" "}
-        Lisa.
+        Ligia.
       </h1>
       <br />
       {data ? (

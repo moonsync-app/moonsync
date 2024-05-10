@@ -57,10 +57,14 @@ export default function ChatMessages(
           }
           return nextIndex % loadingMessages.length;
         });
-      }, 4000);
+      }, 4500);
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      setMessageIndex(0);
+      setShowLastMessage(false);
+      clearInterval(interval);
+    };
   }, [isPending, showLastMessage]);
 
   return (
