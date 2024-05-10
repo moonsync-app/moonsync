@@ -51,14 +51,14 @@ const PerplexityComponent = () => {
           <Link
             href={{
               pathname: "/chat",
-              query: { query: "Suggested workout plan for this week" },
+              query: { query: "Suggested workout plan for next week" },
             }}
           >
             <div
               className={`p-4 w-full mb-4 rounded-xl text-lg border text-white bg-white backdrop-blur-lg bg-opacity-15 hover:cursor-pointer ${poppins.className}`}
             >
               {" "}
-              🏋️‍♀️ Suggested workout plan for this week
+              🏋️‍♀️ Suggested workout plan for next week
             </div>
           </Link>
 
