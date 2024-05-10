@@ -26,6 +26,7 @@ export default function ChatInput(
       props.handleSubmit(e, {
         data: { imageUrl: imageUrl },
       });
+      localStorage.setItem(props.input, imageUrl);
       setImageUrl(null);
       return;
     }
