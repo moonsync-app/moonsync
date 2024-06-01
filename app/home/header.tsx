@@ -13,7 +13,11 @@ interface BiometricData {
 
 const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
-export default function Header() {
+export default function Header({
+  userName,
+}: {
+  userName: string | null | undefined;
+}) {
   const [data, setData] = useState<BiometricData | null>(null);
 
   useEffect(() => {
@@ -36,7 +40,7 @@ export default function Header() {
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-yellow-100">
           Good Morning,
         </span>{" "}
-        Ligia.
+        {userName ? userName : "Ligia"}
       </h1>
       <br />
       {data ? (

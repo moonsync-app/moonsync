@@ -12,6 +12,9 @@
   "dependencies": {
     "@clerk/nextjs": "^5.0.6",
     "@radix-ui/react-slot": "^1.0.2",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.2",
+    "@tryterra/terra-ui": "^0.2.0",
     "@vercel/edge": "^1.1.1",
     "ai": "^2.2.37",
     "aws4": "^1.12.0",
@@ -31,7 +34,8 @@
     "remark-gfm": "^3.0.1",
     "remark-math": "^5.1.1",
     "supports-color": "^8.1.1",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "terra-api": "^1.4.5"
   },
   "devDependencies": {
     "@types/node": "^20.12.9",
