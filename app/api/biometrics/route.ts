@@ -7,7 +7,7 @@ export const maxDuration = 300; // set to 5 mins
 
 export async function POST(request: NextRequest) {
   try {
-    console.log(`[api:biometrics] Request: ${JSON.stringify(request)}`);
+    console.log(`[llamaindex:biometrics] Request: ${JSON.stringify(request)}`);
     const body = await request.json();
     const value = body.key;
     // Make a POST request to the external API
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     // Return the response body directly
     return new NextResponse(response.body);
   } catch (error) {
-    console.error("[api:biometrics]", error);
+    console.error("[LlamaIndex]", error);
     return NextResponse.json(
       {
         error: (error as Error).message,
