@@ -3,6 +3,7 @@
 import { useMemo, useState, useEffect } from "react";
 import * as d3 from "d3";
 import { data } from "./data";
+import { BACKEND_HOST } from "../../utils/constants";
 
 type DonutChartProps = {
   width: number;
@@ -15,13 +16,11 @@ const INFLEXION_PADDING = 15; // Space between donut and label inflexion point
 
 const colors = ["#ea404e", "#1a5c56", "#f87c00", "#0092bb"];
 
-const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
-
 export const DonutChart = ({ width, height }: DonutChartProps) => {
   const [menstrualPhase, setMenstrualPhase] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${backendHost}/api/biometrics`, {
+    fetch(`${BACKEND_HOST}/api/biometrics`, {
       method: "POST",
       body: JSON.stringify({ key: "42" }),
       headers: { "Content-Type": "application/json" },

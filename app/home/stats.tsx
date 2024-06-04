@@ -2,6 +2,7 @@
 
 import StatsCard from "./stats-card";
 import { useEffect, useState } from "react";
+import { BACKEND_HOST } from "../utils/constants";
 
 interface Data {
   mood_resp: string;
@@ -40,8 +41,6 @@ function getWithExpiry(key: string) {
   return item;
 }
 
-const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
-
 export default function StatsComponent() {
   const [data, setData] = useState<Data | null>(null);
 
@@ -53,7 +52,7 @@ export default function StatsComponent() {
       return;
     }
 
-    fetch(`${backendHost}/api/dashboard`, {
+    fetch(`${BACKEND_HOST}/api/dashboard`, {
       method: "POST",
       body: JSON.stringify({ key: "42" }),
       headers: { "Content-Type": "application/json" },

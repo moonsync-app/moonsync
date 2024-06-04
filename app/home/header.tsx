@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BACKEND_HOST } from "../utils/constants";
 
 interface BiometricData {
   menstrual_phase: string;
@@ -11,13 +12,11 @@ interface BiometricData {
   temp_f: number;
 }
 
-const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
-
 export default function Header() {
   const [data, setData] = useState<BiometricData | null>(null);
 
   useEffect(() => {
-    fetch(`${backendHost}/api/biometrics`, {
+    fetch(`${BACKEND_HOST}/api/biometrics`, {
       method: "POST",
       body: JSON.stringify({ key: "42" }),
       headers: { "Content-Type": "application/json" },
