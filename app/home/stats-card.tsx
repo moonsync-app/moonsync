@@ -3,7 +3,12 @@
   /* <div className="relative h-48 mx-4 -mt-16 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40"> */
 }
 
-export default function StatsCard({ title, details }) {
+type StatsCardProps = {
+  title: string;
+  details?: string;
+};
+
+export default function StatsCard({ title, details }: StatsCardProps) {
   return (
     <div
       className="relative flex flex-col sm:mt-16 lg:-mt-8 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-11/12"

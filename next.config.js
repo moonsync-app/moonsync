@@ -20,9 +20,6 @@ const nextConfig = {
       "/*": ["./cache/**/*"],
     },
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   reactStrictMode: false,
 };
 

@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { DASHBOARD_API_URL } from "../../utils/constants";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300; // set to 5 mins
-
-const apiUrl = process.env.DASHBOARD_API_URL;
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,7 +11,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const value = body.key;
     // Make a POST request to the external API
-    const response = await fetch(apiUrl, {
+    const response = await fetch(DASHBOARD_API_URL, {
       method: "POST",
       // body: JSON.stringify({
       //   test: value

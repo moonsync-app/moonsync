@@ -69,12 +69,16 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
     .outerRadius(radius + INFLEXION_PADDING);
 
   const totalDays = d3.sum(data, (d) => d.value);
+  const phaseKey = (menstrualPhase ??
+    "follicular") as keyof typeof phaseToPositionMap; // Default to follicular phase
+
   const currentDayAngleStart =
-    (phaseToPositionMap[menstrualPhase] / totalDays) * 2 * Math.PI -
-    Math.PI / 2;
+    (phaseToPositionMap[phaseKey] / totalDays) * 2 * Math.PI - Math.PI / 2;
   const currentDayAngleEnd =
     currentDayAngleStart + (1 / totalDays) * 2 * Math.PI;
-  let currentDayColor = "#ea404e";
+
+  let currentDayColor = "#ea404e"; // TODO fix hardcoded value
+
   pie.forEach((slice, i) => {
     if (
       currentDayAngleStart >= slice.startAngle &&
@@ -84,7 +88,8 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
     }
   });
 
-  const currentDayArc = d3
+  // TODO: could not figure out the type check for currentDayArc, so using `any` for now
+  const currentDayArc: any = d3
     .arc()
     .innerRadius(radius - 50)
     .outerRadius(radius + 25)
@@ -93,8 +98,14 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
     .cornerRadius(50); // Set cornerRadius for current day arc
 
   const shapes = pie.map((grp, i) => {
-    const slicePath = arcGenerator(grp);
-    const labelPosition = labelArc.centroid(grp);
+    // Add innerRadius and outerRadius properties
+    const arcData = { ...grp, innerRadius: 0, outerRadius: radius };
+
+    const slicePath = arcGenerator(arcData);
+    if (slicePath === null) {
+      throw new Error("slicePath is null");
+    }
+    const labelPosition = labelArc.centroid(arcData);
     const isRightLabel = labelPosition[0] > 0;
     const textAnchor = isRightLabel ? "start" : "end";
 
@@ -127,7 +138,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
         {shapes}
         <path
           className="animate-pulse"
-          d={currentDayArc()}
+          d={currentDayArc}
           fill={currentDayColor} // Dynamically set color for the current day
         />
         {/* Adding image in the center */}

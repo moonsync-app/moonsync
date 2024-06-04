@@ -1,7 +1,7 @@
 "use client";
 
 import StatsCard from "./stats-card";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Data {
   mood_resp: string;
@@ -26,7 +26,7 @@ function setWithExpiry(data: Data) {
   localStorage.setItem("statsData", JSON.stringify(item));
 }
 
-function getWithExpiry(key) {
+function getWithExpiry(key: string) {
   const itemStr = localStorage.getItem(key);
   if (!itemStr) {
     return null;
@@ -92,17 +92,14 @@ export default function StatsComponent() {
             <StatsCard
               /*  svgIllustration={MoodImage} */
               title={"Mood"}
-              details={null}
             />
             <StatsCard
               /*   svgIllustration={DietImage} */
               title={"Nourish"}
-              details={null}
             />
             <StatsCard
               /*   svgIllustration={WorkoutImage} */
               title={"Movement"}
-              details={null}
             />
           </>
         )}
