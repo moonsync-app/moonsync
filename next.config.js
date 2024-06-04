@@ -7,7 +7,6 @@ const nextConfig = {
       process.env.NODE_ENV === "production"
         ? "pk_live_Y2xlcmsubW9vbnN5bmMuYXBwJA"
         : "pk_test_YWxsb3dpbmctam9leS01My5jbGVyay5hY2NvdW50cy5kZXYk",
-    NEXT_PUBLIC_BACKEND_HOST: "https://app.moonsync.app",
   },
   webpack: (config) => {
     // See https://webpack.js.org/configuration/resolve/#resolvealias

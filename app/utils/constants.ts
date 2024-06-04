@@ -2,4 +2,4 @@
 export const BIOMETRICS_API_URL: string = process.env.BIOMETRICS_API_URL || "";
 export const CHAT_API_URL: string = process.env.CHAT_API_URL || "";
 export const DASHBOARD_API_URL: string = process.env.DASHBOARD_API_URL || "";
-export const BACKEND_HOST: string = process.env.NEXT_PUBLIC_BACKEND_HOST || "";
+export const BACKEND_HOST: string = "https://app.moonsync.app";
