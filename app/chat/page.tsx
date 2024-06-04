@@ -17,11 +17,9 @@ export default function Home() {
         className={`flex min-h-screen flex-col items-center gap-10 p-4 pt-20 lg:p-12 background-gradient ${poppins.className}`}
       >
         <SpeedDial />
-        {/* <Header /> */}
         <Suspense>
           <ChatSection />
         </Suspense>
-        {/* <Footer /> */}
       </main>
     </>
   );
