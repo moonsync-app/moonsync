@@ -28,7 +28,7 @@ const convertMessageContent = (
 };
 
 export async function POST(request: NextRequest) {
-  console.log(`[llamaindex:chat] Request: ${JSON.stringify(request)}`);
+  console.log(`[api:chat] Request: ${JSON.stringify(request)}`);
 
   try {
     const body = await request.json();
@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
       throw new Error("Response body is null");
     }
   } catch (error) {
-    console.error("[LlamaIndex]", error);
+    console.error("[api:chat]", error);
     return NextResponse.json(
       {
         error: (error as Error).message,
