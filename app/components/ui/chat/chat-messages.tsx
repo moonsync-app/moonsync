@@ -65,7 +65,7 @@ export default function ChatMessages(
       setShowLastMessage(false);
       clearInterval(interval);
     };
-  }, [isPending, showLastMessage]);
+  }, [isPending, showLastMessage, loadingMessages.length]);
 
   return (
     <div className="w-full rounded-xl bg-white p-4 shadow-xl pb-0">

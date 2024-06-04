@@ -2,12 +2,11 @@ import { StreamingTextResponse } from "ai";
 import { ChatMessage, MessageContent } from "llamaindex";
 import { NextRequest, NextResponse } from "next/server";
 import { geolocation } from "@vercel/edge";
+import { CHAT_API_URL } from "../../utils/constants";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300; // set to 5 mins
-
-const apiUrl = process.env.API_URL;
 
 const convertMessageContent = (
   textMessage: string,
@@ -29,7 +28,7 @@ const convertMessageContent = (
 };
 
 export async function POST(request: NextRequest) {
-  console.log(`[llamaindex] Request: ${JSON.stringify(request)}`);
+  console.log(`[llamaindex:chat] Request: ${JSON.stringify(request)}`);
 
   try {
     const body = await request.json();
@@ -66,7 +65,7 @@ export async function POST(request: NextRequest) {
     console.log(`Country: ${country}, City: ${city}, Region: ${region}`);
 
     // Make a POST request to the external API
-    const response = await fetch(apiUrl, {
+    const response = await fetch(CHAT_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +80,11 @@ export async function POST(request: NextRequest) {
     });
 
     // Return the response body directly
-    return new StreamingTextResponse(response.body);
+    if (response.body) {
+      return new StreamingTextResponse(response.body);
+    } else {
+      throw new Error("Response body is null");
+    }
   } catch (error) {
     console.error("[LlamaIndex]", error);
     return NextResponse.json(
