@@ -5,12 +5,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
-
-const { user } = useUser();
-
 const poppins = Poppins({ weight: "600", subsets: ["latin"] });
 
 export default function MainInput() {
+  const { user } = useUser();
   const [query, setQuery] = useState("");
 
   return (

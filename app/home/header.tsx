@@ -46,9 +46,9 @@ export default function Header() {
     <div className="text-center text-black">
       <h1 className="text-2xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-yellow-100">
-          { greeting },
+          {greeting},
         </span>{" "}
-          { user && user.firstName }
+        {user && user.firstName}
       </h1>
       <br />
       {data ? (
