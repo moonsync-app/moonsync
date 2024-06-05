@@ -78,6 +78,9 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
     devDependencies:
+      '@clerk/types':
+        specifier: ^4.6.0
+        version: 4.6.0
       '@types/d3':
         specifier: ^7.4.3
         version: 7.4.3
@@ -188,6 +191,10 @@ packages:
 
   '@clerk/types@4.5.1':
     resolution: {integrity: sha512-eLaH+IKnxgjGQhRZ5rhZA9pQszSKbtSZE5V6c3a/F2crlkYIFABrVdf1q6p5bSAEmcYdcV4u4kaEFZ5UpYNcOw==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.6.0':
+    resolution: {integrity: sha512-kowqVGqLfu0Zl2Pteum70MfkGHqBUoHHeR+u2+yWVl1lKHLCiyY1u8ntYBEIolAylBaQNDuRzxyMIDPSxjPE8g==}
     engines: {node: '>=18.17.0'}
 
   '@colors/colors@1.6.0':
@@ -3686,6 +3693,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@clerk/types@4.5.1':
+    dependencies:
+      csstype: 3.1.1
+
+  '@clerk/types@4.6.0':
     dependencies:
       csstype: 3.1.1
 
