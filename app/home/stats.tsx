@@ -66,40 +66,18 @@ export default function StatsComponent() {
 
   return (
     <div className="w-full mt-12 pb-8">
-      {/* <div className="absolute inset-x-0 bottom-0 w-full mb-2"> */}
       <div className="grid sm:grid-cols-1 gap-10 md:grid-cols-1 lg:grid-cols-3 justify-items-center ">
         {data ? (
           <>
-            <StatsCard
-              /*  svgIllustration={MoodImage} */
-              title={"Energy"}
-              details={data.mood_resp}
-            />
-            <StatsCard
-              /*   svgIllustration={DietImage} */
-              title={"Nourish"}
-              details={data.nutrition_resp}
-            />
-            <StatsCard
-              /*  svgIllustration={WorkoutImage} */
-              title={"Movement"}
-              details={data.exercise_resp}
-            />
+            <StatsCard title={"Energy"} details={data.mood_resp} />
+            <StatsCard title={"Nourish"} details={data.nutrition_resp} />
+            <StatsCard title={"Movement"} details={data.exercise_resp} />
           </>
         ) : (
           <>
-            <StatsCard
-              /*  svgIllustration={MoodImage} */
-              title={"Mood"}
-            />
-            <StatsCard
-              /*   svgIllustration={DietImage} */
-              title={"Nourish"}
-            />
-            <StatsCard
-              /*   svgIllustration={WorkoutImage} */
-              title={"Movement"}
-            />
+            <StatsCard title={"Mood"} />
+            <StatsCard title={"Nourish"} />
+            <StatsCard title={"Movement"} />
           </>
         )}
       </div>
