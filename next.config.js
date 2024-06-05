@@ -1,8 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_CLERK_SIGN_UP_URL: "https://accounts.moonsync.app/sign-up",
-    NEXT_PUBLIC_CLERK_SIGN_IN_URL: "https://accounts.moonsync.app/sign-in",
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL:
+      process.env.NODE_ENV === "production"
+        ? "https://accounts.moonsync.app/sign-up"
+        : "https://allowing-joey-53.accounts.dev/sign-up",
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL:
+      process.env.NODE_ENV === "production"
+        ? "https://accounts.moonsync.app/sign-in"
+        : "https://allowing-joey-53.accounts.dev/sign-in",
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
       process.env.NODE_ENV === "production"
         ? "pk_live_Y2xlcmsubW9vbnN5bmMuYXBwJA"
