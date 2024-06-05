@@ -1,7 +1,24 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default clerkMiddleware(auth => {
+export default clerkMiddleware((auth, req: NextRequest) => {
+  // redirect user to signin route automatically
   auth().protect();
+
+  const { userId, sessionClaims } = auth();
+
+  // For user visiting /onboarding, don't try and redirect
+  if (userId && req.nextUrl.pathname === "/onboarding") {
+    return NextResponse.next();
+  }
+
+  // Catch users who doesn't have `onboardingComplete: true` in PublicMetata
+  // Redirect them to the /onboading out to complete onboarding
+  // @ts-ignore
+  if (userId && !sessionClaims?.metadata?.onboardingComplete) {
+    const onboardingUrl = new URL("/onboarding", req.url);
+    return NextResponse.redirect(onboardingUrl)
+  }
 })
 
 export const config = {
