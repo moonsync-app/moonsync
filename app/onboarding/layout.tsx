@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import { type JwtPayload } from "@clerk/types";
 import { HOME_PATH } from "../utils/constants";
 
-
 interface CustomJwtPayload extends JwtPayload {
   metadata?: {
     onboardingComplete?: boolean;
@@ -13,9 +12,8 @@ interface CustomJwtPayload extends JwtPayload {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
   const { sessionClaims } = auth();
 
   const customSessionClaims = sessionClaims as CustomJwtPayload | null;
@@ -24,5 +22,5 @@ export default function RootLayout({
     redirect(HOME_PATH);
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }

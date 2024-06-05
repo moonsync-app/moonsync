@@ -13,10 +13,7 @@ export default function OnboardingComponent() {
     // if otherTracker is not empty, then add it to the trackers array
     // and then remove from formData
     if (formData.get("otherTracker")) {
-      formData.append(
-        "trackers",
-        formData.get("otherTracker") as string,
-      );
+      formData.append("trackers", formData.get("otherTracker") as string);
       formData.delete("otherTracker");
     }
 
