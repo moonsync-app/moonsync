@@ -22,11 +22,11 @@ const nextConfig = {
       "/*": ["./cache/**/*"],
     },
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
+  swcMinify: true,
   async headers() {
     return [
       {
-        // Apply these headers to all routes in your application.
         source: "/(.*)",
         headers: [
           {
