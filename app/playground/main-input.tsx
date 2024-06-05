@@ -2,9 +2,13 @@
 
 import { Poppins } from "next/font/google";
 import Link from "next/link";
+import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
+
+
+const { user } = useUser();
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"] });
-import { useState } from "react";
 
 export default function MainInput() {
   const [query, setQuery] = useState("");
@@ -16,7 +20,7 @@ export default function MainInput() {
           rows={4}
           id="comment"
           className={`w-full p-2 text-lg text-white border rounded-lg focus:outline-none bg-white backdrop-blur-lg bg-opacity-15 placeholder-gray-100 ${poppins.className}`}
-          placeholder="Ligia, How can I help you today?"
+          placeholder={`${user && user.firstName}, How can I help you today?`}
           required
           value={query}
           onChange={(e) => setQuery(e.target.value)}
