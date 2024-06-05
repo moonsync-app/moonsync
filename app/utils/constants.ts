@@ -7,3 +7,6 @@ export const BACKEND_HOST: string =
   process.env.NODE_ENV === "production"
     ? "https://app.moonsync.app"
     : "http://localhost:3000";
+
+// Page Paths
+export const HOME_PATH = "/";
