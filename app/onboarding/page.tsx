@@ -34,11 +34,11 @@ export default function OnboardingComponent() {
           <div className="space-y-4 px-8 pb-8">
             <div>
               <label className="block text-sm font-semibold text-gray-700">
-                Full Name
+                Name
               </label>
               <input
                 type="text"
-                name="fullName"
+                name="name"
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 required
               />
@@ -46,11 +46,11 @@ export default function OnboardingComponent() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700">
-                Phone Number
+                Date of Birth
               </label>
               <input
-                type="tel"
-                name="phoneNumber"
+                type="date"
+                name="dob"
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 required
               />
@@ -58,13 +58,13 @@ export default function OnboardingComponent() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700">
-                Do you wear any wearables or cycle trackers?
+                Wearables/Menstrual Tracker Usage
               </label>
               <div className="mt-1">
                 <label className="inline-flex items-center">
                   <input
                     type="radio"
-                    name="wearables"
+                    name="wearablesUsage"
                     value="Yes"
                     className="form-radio"
                     required
@@ -74,7 +74,7 @@ export default function OnboardingComponent() {
                 <label className="inline-flex items-center ml-6">
                   <input
                     type="radio"
-                    name="wearables"
+                    name="wearablesUsage"
                     value="No"
                     className="form-radio"
                     required
@@ -86,19 +86,20 @@ export default function OnboardingComponent() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700">
-                Which wearable/cycle tracker?
+                Which wearables/menstrual trackers do you use?
               </label>
               <div className="mt-1 space-y-2">
                 {[
-                  "N/A",
-                  "Apple Watch",
                   "Oura Ring",
-                  "Garmin",
-                  "Fitbit",
-                  "Samsung Galaxy Watch",
+                  "Garmin Watch",
+                  "Apple Watch",
+                  "Samsung Watch",
+                  "FitBit",
+                  "Whoop",
                   "Clue",
-                  "Fitr",
-                  "Apple Health",
+                  "Flo",
+                  "Ovia",
+                  "Others",
                 ].map((tracker) => (
                   <label key={tracker} className="block">
                     <input
@@ -115,7 +116,7 @@ export default function OnboardingComponent() {
                     <input
                       type="checkbox"
                       name="trackers"
-                      value="Other"
+                      value="Others"
                       className="form-checkbox"
                     />
                     <span className="ml-2">Other:</span>
@@ -128,6 +129,181 @@ export default function OnboardingComponent() {
                   />
                 </div>
               </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Full cycle length
+              </label>
+              <input
+                type="range"
+                name="fullCycleLength"
+                min="20"
+                max="60"
+                className="w-full"
+              />
+              <div className="mt-2 text-sm">
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="fullCycleLength"
+                    value="I don't know"
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">I don&apos;t know</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Period length
+              </label>
+              <input
+                type="range"
+                name="periodLength"
+                min="0"
+                max="10"
+                className="w-full"
+              />
+              <div className="mt-2 text-sm">
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="periodLength"
+                    value="I don't know"
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">I don&apos;t know</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Select all the days of your last period
+              </label>
+              <input
+                type="date"
+                name="lastPeriod"
+                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                required
+              />
+              <div className="mt-2 text-sm">
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="lastPeriod"
+                    value="I don't know"
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">I don&apos;t know</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Check all that apply to you
+              </label>
+              <div className="mt-1 space-y-2">
+                {[
+                  "I am a working professional",
+                  "I am an athlete",
+                  "I have a hormonal condition",
+                  "I am undergoing peri-menopause",
+                  "I am undergoing menopause",
+                  "I am generally interested in my health",
+                ].map((condition) => (
+                  <label key={condition} className="block">
+                    <input
+                      type="checkbox"
+                      name="conditions"
+                      value={condition}
+                      className="form-checkbox"
+                    />
+                    <span className="ml-2">{condition}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Tell us more
+              </label>
+              <div className="mt-1 space-y-2">
+                {[
+                  "PCOS",
+                  "endometriosis",
+                  "fibroids",
+                  "IBS",
+                  "ovarian cysts",
+                ].map((condition) => (
+                  <label key={condition} className="block">
+                    <input
+                      type="checkbox"
+                      name="moreConditions"
+                      value={condition}
+                      className="form-checkbox"
+                    />
+                    <span className="ml-2">{condition}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Do you take birth control?
+              </label>
+              <div className="mt-1">
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    name="birthControl"
+                    value="Yes"
+                    className="form-radio"
+                    required
+                  />
+                  <span className="ml-2">Yes</span>
+                </label>
+                <label className="inline-flex items-center ml-6">
+                  <input
+                    type="radio"
+                    name="birthControl"
+                    value="No"
+                    className="form-radio"
+                    required
+                  />
+                  <span className="ml-2">No</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                What type?
+              </label>
+              <select
+                name="birthControlType"
+                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                required
+              >
+                <option value="">Select...</option>
+                <option value="Hormonal">Hormonal</option>
+                <option value="Non-Hormonal">Non-Hormonal</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Anything else we should know?
+              </label>
+              <textarea
+                name="additionalInfo"
+                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              ></textarea>
             </div>
           </div>
 
