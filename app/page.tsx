@@ -1,8 +1,8 @@
 import { Poppins } from "next/font/google";
-import SpeedDial from "./components/ui/speed-dial";
-import StatsComponent from "./home/stats";
-import Header from "./home/header";
-import { DonutChart } from "./components/ui/phase";
+import SpeedDial from "@/app/components/ui/speed-dial";
+import StatsComponent from "@/app/home/stats";
+import Header from "@/app/home/header";
+import { DonutChart } from "@/app/components/ui/phase";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 

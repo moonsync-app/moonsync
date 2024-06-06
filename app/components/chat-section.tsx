@@ -2,8 +2,8 @@
 
 import { useChat } from "ai/react";
 import { useState, useMemo, useEffect, useRef } from "react";
-import { insertDataIntoMessages } from "./transform";
-import { ChatInput, ChatMessages } from "./ui/chat";
+import { insertDataIntoMessages } from "@/app/components/transform";
+import { ChatInput, ChatMessages } from "@/app/components/ui/chat";
 import { useSearchParams } from "next/navigation";
 
 export default function ChatSection() {

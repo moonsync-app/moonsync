@@ -2,8 +2,8 @@
 
 import { useMemo, useState, useEffect } from "react";
 import * as d3 from "d3";
-import { data } from "./data";
-import { BACKEND_HOST } from "../../utils/constants";
+import { data } from "@/app/components/ui/data";
+import { BACKEND_HOST } from "@/app/utils/constants";
 
 type DonutChartProps = {
   width: number;

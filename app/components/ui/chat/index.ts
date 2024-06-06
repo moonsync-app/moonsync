@@ -1,5 +1,5 @@
-import ChatInput from "./chat-input";
-import ChatMessages from "./chat-messages";
+import ChatInput from "@/app/components/ui/chat/chat-input";
+import ChatMessages from "@/app/components/ui/chat/chat-messages";
 
-export { type ChatHandler } from "./chat.interface";
+export { type ChatHandler } from "@/app/components/ui/chat/chat.interface";
 export { ChatInput, ChatMessages };

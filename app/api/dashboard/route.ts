@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { DASHBOARD_API_URL } from "../../utils/constants";
+import { DASHBOARD_API_URL } from "@/app/utils/constants";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
