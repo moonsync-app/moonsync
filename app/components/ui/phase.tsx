@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
-import * as d3 from "d3";
+import { pie as d3_pie, arc, sum } from "d3";
 import { data } from "@/app/components/ui/data";
 import { BACKEND_HOST } from "@/app/utils/constants";
 
@@ -49,25 +49,22 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
   const innerRadius = radius / 1.1;
 
   const pie = useMemo(() => {
-    const pieGenerator = d3
-      .pie<any, (typeof data)[number]>()
+    const pieGenerator = d3_pie<any, (typeof data)[number]>()
       .sort(null) // Disable sorting to maintain the order of the data
       .value((d) => d.value);
     return pieGenerator(data);
   }, []);
 
-  const arcGenerator = d3
-    .arc()
+  const arcGenerator = arc()
     .innerRadius(innerRadius)
     .outerRadius(radius)
     .cornerRadius(15); // Set corner radius for all arcs
 
-  const labelArc = d3
-    .arc()
+  const labelArc = arc()
     .innerRadius(radius + INFLEXION_PADDING) // Move labels outside the donut
     .outerRadius(radius + INFLEXION_PADDING);
 
-  const totalDays = d3.sum(data, (d) => d.value);
+  const totalDays = sum(data, (d) => d.value);
   const phaseKey = (menstrualPhase ??
     "follicular") as keyof typeof phaseToPositionMap; // Default to follicular phase
 
@@ -88,8 +85,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
   });
 
   // TODO: could not figure out the type check for currentDayArc, so using `any` for now
-  const currentDayArc: any = d3
-    .arc()
+  const currentDayArc: any = arc()
     .innerRadius(radius - 50)
     .outerRadius(radius + 25)
     .startAngle(currentDayAngleStart)
