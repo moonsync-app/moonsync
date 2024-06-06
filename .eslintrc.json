@@ -5,6 +5,7 @@
     "prettier/prettier": "error",
     "unused-imports/no-unused-imports": "error",
 
+    // https://github.com/EvgenyOrekhov/eslint-config-hardcore/blob/master/base.json
     "import/default": "error",
     "import/namespace": "error",
     "import/no-absolute-path": "error",
