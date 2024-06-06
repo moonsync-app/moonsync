@@ -1,8 +1,7 @@
-import React from "react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
-import MainInput from "./main-input";
-import SpeedDial from "../components/ui/speed-dial";
+import MainInput from "@/app/playground/main-input";
+import SpeedDial from "@/app/components/ui/speed-dial";
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"] });
 const poppinsThin = Poppins({ weight: "200", subsets: ["latin"] });

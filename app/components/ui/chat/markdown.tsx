@@ -3,7 +3,7 @@ import ReactMarkdown, { Options } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
-import { CodeBlock } from "./codeblock";
+import { CodeBlock } from "@/app/components/ui/chat/codeblock";
 
 const MemoizedReactMarkdown: FC<Options> = memo(
   ReactMarkdown,

@@ -1,9 +1,9 @@
 import { useState, LegacyRef } from "react";
-import { Button } from "../button";
-import FileUploader from "../file-uploader";
-import { Input } from "../input";
-import UploadImagePreview from "../upload-image-preview";
-import { ChatHandler } from "./chat.interface";
+import { Button } from "@/app/components/ui/button";
+import FileUploader from "@/app/components/ui/file-uploader";
+import { Input } from "@/app/components/ui/input";
+import UploadImagePreview from "@/app/components/ui/upload-image-preview";
+import { ChatHandler } from "@/app/components/ui/chat/chat.interface";
 
 export default function ChatInput(
   props: Pick<

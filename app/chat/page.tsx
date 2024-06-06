@@ -1,6 +1,6 @@
 import ChatSection from "@/app/components/chat-section";
 import { Suspense } from "react";
-import SpeedDial from "../components/ui/speed-dial";
+import SpeedDial from "@/app/components/ui/speed-dial";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({

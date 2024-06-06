@@ -1,8 +1,8 @@
 "use client";
 
-import StatsCard from "./stats-card";
+import StatsCard from "@/app/home/stats-card";
 import { useEffect, useState } from "react";
-import { BACKEND_HOST } from "../utils/constants";
+import { BACKEND_HOST } from "@/app/utils/constants";
 
 interface Data {
   mood_resp: string;
