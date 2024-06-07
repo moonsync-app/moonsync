@@ -1,6 +1,7 @@
 {
   "name": "moonsync",
   "version": "0.0.2",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -60,5 +61,6 @@
     "*.{md,json}": [
       "prettier -w"
     ]
-  }
+  },
+  "packageManager": "pnpm@9.2.0"
 }
