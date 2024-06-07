@@ -26,6 +26,8 @@ export const completeOnboarding = async (formData: FormData) => {
       additionalInfo: formData.get("additionalInfo"),
     };
 
+    console.log("privateMetadata", privateMetadata);
+
     await clerkClient.users.updateUser(userId, {
       publicMetadata: {
         onboardingComplete: true,
