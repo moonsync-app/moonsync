@@ -80,7 +80,7 @@ export const DonutChart = ({ width, height }: DonutChartProps) => {
       currentDayAngleStart >= slice.startAngle &&
       currentDayAngleStart <= slice.endAngle
     ) {
-      currentDayColor = colors[i % colors.length];
+      currentDayColor = colors[i % colors.length] || currentDayColor;
     }
   });
 

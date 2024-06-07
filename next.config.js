@@ -30,7 +30,7 @@ const nextConfig = {
     },
   },
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false, // see discussions in https://github.com/vercel/next.js/issues/36127 and https://github.com/vercel/next.js/issues/58623
   async headers() {
     return [
       {

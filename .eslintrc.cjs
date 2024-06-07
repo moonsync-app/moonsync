@@ -1,7 +1,21 @@
-{
-  "extends": "next/core-web-vitals",
-  "plugins": ["prettier", "unused-imports"],
+/** @type {import("eslint").Linter.Config} */
+const config = {
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "plugins": [
+    "prettier",
+    "unused-imports",
+    "import",
+    "@typescript-eslint"
+  ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+
     "prettier/prettier": "error",
     "unused-imports/no-unused-imports": "error",
 
@@ -29,3 +43,5 @@
     "import/no-empty-named-blocks": "error"
   }
 }
+
+module.exports = config;

@@ -7,13 +7,6 @@ import ChatAvatar from "@/app/components/ui/chat/chat-avatar";
 import Markdown from "@/app/components/ui/chat/markdown";
 import { useCopyToClipboard } from "@/app/components/ui/chat/use-copy-to-clipboard";
 
-interface ChatMessageImageData {
-  type: "image_url";
-  image_url: {
-    url: string;
-  };
-}
-
 // This component will parse message data and render the appropriate UI.
 function ChatMessageData({ imageUrl }: { imageUrl: string }) {
   return (

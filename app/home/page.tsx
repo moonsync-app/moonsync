@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google";
 import SpeedDial from "@/app/components/ui/speed-dial";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
-const poppinsThin = Poppins({ weight: "200", subsets: ["latin"] });
 
 export default async function Page() {
   return (
