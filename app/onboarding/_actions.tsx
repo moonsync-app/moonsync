@@ -10,16 +10,26 @@ export const completeOnboarding = async (formData: FormData) => {
   }
 
   try {
+    const privateMetadata = {
+      fullName: formData.get("name"),
+      dateOfBirth: formData.get("dob"),
+      wearablesUsage: formData.get("wearablesUsage"),
+      trackers: formData.getAll("trackers"),
+      fullCycleLength: formData.get("fullCycleLength"),
+      periodLength: formData.get("periodLength"),
+      lastPeriod: formData.get("lastPeriod"),
+      conditions: formData.getAll("conditions"),
+      moreConditions: formData.getAll("moreConditions"),
+      birthControl: formData.get("birthControl"),
+      birthControlType: formData.get("birthControlType"),
+      additionalInfo: formData.get("additionalInfo"),
+    };
+
     await clerkClient.users.updateUser(userId, {
       publicMetadata: {
         onboardingComplete: true,
       },
-      privateMetadata: {
-        fullName: formData.get("fullName"),
-        phoneNumber: formData.get("phoneNumber"),
-        wearables: formData.get("wearables"),
-        trackers: formData.getAll("trackers"),
-      },
+      privateMetadata: privateMetadata,
     });
     return { message: "User metadata Updated" };
   } catch (e) {
