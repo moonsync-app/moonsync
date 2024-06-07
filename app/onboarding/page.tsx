@@ -167,14 +167,14 @@ export default function OnboardingComponent() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700">
-                Full cycle length
+                Full length of your cycle (in days)
               </label>
               <input
-                type="range"
+                type="number"
                 name="fullCycleLength"
                 min="20"
                 max="60"
-                className="w-full"
+                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 disabled={fullCycleLengthUnknown}
               />
               <div className="mt-2 text-sm">
@@ -193,14 +193,14 @@ export default function OnboardingComponent() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700">
-                Period length
+                Period length (in days)
               </label>
               <input
-                type="range"
+                type="number"
                 name="periodLength"
-                min="0"
-                max="10"
-                className="w-full"
+                min="1"
+                max="30"
+                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 disabled={periodLengthUnknown}
               />
               <div className="mt-2 text-sm">
