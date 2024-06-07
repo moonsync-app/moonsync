@@ -11,9 +11,14 @@ export default function OnboardingComponent() {
   const { user } = useUser();
   const router = useRouter();
 
+  const [showTrackers, setShowTrackers] = useState(false);
   const [fullCycleLengthUnknown, setFullCycleLengthUnknown] = useState(false);
   const [periodLengthUnknown, setPeriodLengthUnknown] = useState(false);
   const [lastPeriodUnknown, setLastPeriodUnknown] = useState(false);
+
+  const handleWearablesUsageChange = (event: FormEvent<HTMLInputElement>) => {
+    setShowTrackers(event.currentTarget.value === "Yes");
+  };
 
   const handleFullCycleLengthChange = (event: FormEvent<HTMLInputElement>) => {
     setFullCycleLengthUnknown(event.currentTarget.checked);
@@ -75,78 +80,84 @@ export default function OnboardingComponent() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700">
-                Wearables/Menstrual Tracker Usage
-              </label>
-              <div className="mt-1">
-                <label className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    name="wearablesUsage"
-                    value="Yes"
-                    className="form-radio"
-                    required
-                  />
-                  <span className="ml-2">Yes</span>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Wearables/Menstrual Tracker Usage
                 </label>
-                <label className="inline-flex items-center ml-6">
-                  <input
-                    type="radio"
-                    name="wearablesUsage"
-                    value="No"
-                    className="form-radio"
-                    required
-                  />
-                  <span className="ml-2">No</span>
-                </label>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-gray-700">
-                Which wearables/menstrual trackers do you use?
-              </label>
-              <div className="mt-1 space-y-2">
-                {[
-                  "Oura Ring",
-                  "Garmin Watch",
-                  "Apple Watch",
-                  "Samsung Watch",
-                  "FitBit",
-                  "Whoop",
-                  "Clue",
-                  "Flo",
-                  "Ovia",
-                  "Others",
-                ].map((tracker) => (
-                  <label key={tracker} className="block">
+                <div className="mt-1">
+                  <label className="inline-flex items-center">
                     <input
-                      type="checkbox"
-                      name="trackers"
-                      value={tracker}
-                      className="form-checkbox"
+                      type="radio"
+                      name="wearablesUsage"
+                      value="Yes"
+                      className="form-radio"
+                      required
+                      onChange={handleWearablesUsageChange}
                     />
-                    <span className="ml-2">{tracker}</span>
+                    <span className="ml-2">Yes</span>
                   </label>
-                ))}
-                <div className="flex items-center space-x-2">
-                  <label className="flex items-center">
+                  <label className="inline-flex items-center ml-6">
                     <input
-                      type="checkbox"
-                      name="trackers"
-                      value="Others"
-                      className="form-checkbox"
+                      type="radio"
+                      name="wearablesUsage"
+                      value="No"
+                      className="form-radio"
+                      required
+                      onChange={handleWearablesUsageChange}
                     />
-                    <span className="ml-2">Other:</span>
+                    <span className="ml-2">No</span>
                   </label>
-                  <input
-                    type="text"
-                    name="otherTracker"
-                    placeholder="Please specify"
-                    className="flex-grow px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                  />
                 </div>
               </div>
+
+              {showTrackers && (
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Which wearables/menstrual trackers do you use?
+                  </label>
+                  <div className="mt-1 space-y-2">
+                    {[
+                      "Oura Ring",
+                      "Garmin Watch",
+                      "Apple Watch",
+                      "Samsung Watch",
+                      "FitBit",
+                      "Whoop",
+                      "Clue",
+                      "Flo",
+                      "Ovia",
+                      "Others",
+                    ].map((tracker) => (
+                      <label key={tracker} className="block">
+                        <input
+                          type="checkbox"
+                          name="trackers"
+                          value={tracker}
+                          className="form-checkbox"
+                        />
+                        <span className="ml-2">{tracker}</span>
+                      </label>
+                    ))}
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center">
+                        <input
+                          type="checkbox"
+                          name="trackers"
+                          value="Others"
+                          className="form-checkbox"
+                        />
+                        <span className="ml-2">Other:</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="otherTracker"
+                        placeholder="Please specify"
+                        className="flex-grow px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div>
