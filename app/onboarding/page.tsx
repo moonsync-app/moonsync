@@ -177,7 +177,7 @@ export default function OnboardingComponent() {
                   <input
                     type="checkbox"
                     name="fullCycleLength"
-                    value="I don't know"
+                    value=""
                     className="form-checkbox"
                     onChange={handleFullCycleLengthChange}
                   />
@@ -203,7 +203,7 @@ export default function OnboardingComponent() {
                   <input
                     type="checkbox"
                     name="periodLength"
-                    value="I don't know"
+                    value=""
                     className="form-checkbox"
                     onChange={handlePeriodLengthChange}
                   />
@@ -228,7 +228,7 @@ export default function OnboardingComponent() {
                   <input
                     type="checkbox"
                     name="lastPeriod"
-                    value="I don't know"
+                    value=""
                     className="form-checkbox"
                     onChange={handleLastPeriodChange}
                   />
