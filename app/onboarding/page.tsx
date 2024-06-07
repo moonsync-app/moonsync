@@ -1,13 +1,31 @@
 "use client";
 
+import { FormEvent } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { completeOnboarding } from "@/app/onboarding/_actions";
 import { HOME_PATH } from "@/app/utils/constants";
 
 export default function OnboardingComponent() {
   const { user } = useUser();
   const router = useRouter();
+
+  const [fullCycleLengthUnknown, setFullCycleLengthUnknown] = useState(false);
+  const [periodLengthUnknown, setPeriodLengthUnknown] = useState(false);
+  const [lastPeriodUnknown, setLastPeriodUnknown] = useState(false);
+
+  const handleFullCycleLengthChange = (event: FormEvent<HTMLInputElement>) => {
+    setFullCycleLengthUnknown(event.currentTarget.checked);
+  };
+
+  const handlePeriodLengthChange = (event: FormEvent<HTMLInputElement>) => {
+    setPeriodLengthUnknown(event.currentTarget.checked);
+  };
+
+  const handleLastPeriodChange = (event: FormEvent<HTMLInputElement>) => {
+    setLastPeriodUnknown(event.currentTarget.checked);
+  };
 
   const handleSubmit = async (formData: FormData) => {
     // if otherTracker is not empty, then add it to the trackers array
@@ -141,6 +159,7 @@ export default function OnboardingComponent() {
                 min="20"
                 max="60"
                 className="w-full"
+                disabled={fullCycleLengthUnknown}
               />
               <div className="mt-2 text-sm">
                 <label className="inline-flex items-center">
@@ -149,6 +168,7 @@ export default function OnboardingComponent() {
                     name="fullCycleLength"
                     value="I don't know"
                     className="form-checkbox"
+                    onChange={handleFullCycleLengthChange}
                   />
                   <span className="ml-2">I don&apos;t know</span>
                 </label>
@@ -165,6 +185,7 @@ export default function OnboardingComponent() {
                 min="0"
                 max="10"
                 className="w-full"
+                disabled={periodLengthUnknown}
               />
               <div className="mt-2 text-sm">
                 <label className="inline-flex items-center">
@@ -173,6 +194,7 @@ export default function OnboardingComponent() {
                     name="periodLength"
                     value="I don't know"
                     className="form-checkbox"
+                    onChange={handlePeriodLengthChange}
                   />
                   <span className="ml-2">I don&apos;t know</span>
                 </label>
@@ -188,6 +210,7 @@ export default function OnboardingComponent() {
                 name="lastPeriod"
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 required
+                disabled={lastPeriodUnknown}
               />
               <div className="mt-2 text-sm">
                 <label className="inline-flex items-center">
@@ -196,6 +219,7 @@ export default function OnboardingComponent() {
                     name="lastPeriod"
                     value="I don't know"
                     className="form-checkbox"
+                    onChange={handleLastPeriodChange}
                   />
                   <span className="ml-2">I don&apos;t know</span>
                 </label>
