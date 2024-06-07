@@ -2,13 +2,20 @@
 const config = {
   "extends": [
     "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
+  "parser": "@typescript-eslint/parser",
+  "root": true,
   "plugins": [
     "prettier",
     "unused-imports",
-    "import"
+    "import",
+    "@typescript-eslint"
   ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+
     "prettier/prettier": "error",
     "unused-imports/no-unused-imports": "error",
 

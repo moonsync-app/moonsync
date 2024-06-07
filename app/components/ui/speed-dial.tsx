@@ -6,9 +6,9 @@ import { useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 export default function SpeedDial() {
-  const [isOpened, setIsOpened] = useState<Boolean>(false);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
 
-  const { signOut, redirectToSignIn } = useClerk();
+  const { signOut } = useClerk();
   const router = useRouter();
 
   const onClickHander = () => {
