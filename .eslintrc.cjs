@@ -1,4 +1,5 @@
-{
+/** @type {import("eslint").Linter.Config} */
+const config = {
   "extends": "next/core-web-vitals",
   "plugins": ["prettier", "unused-imports"],
   "rules": {
@@ -29,3 +30,5 @@
     "import/no-empty-named-blocks": "error"
   }
 }
+
+module.exports = config;
