@@ -16,6 +16,7 @@ export default function OnboardingComponent() {
   const [periodLengthUnknown, setPeriodLengthUnknown] = useState(false);
   const [lastPeriodUnknown, setLastPeriodUnknown] = useState(false);
   const [showBirthControlType, setShowBirthControlType] = useState(false);
+  const [lastPeriodDates, setLastPeriodDates] = useState([""]);
 
   const handleWearablesUsageChange = (event: FormEvent<HTMLInputElement>) => {
     setShowTrackers(event.currentTarget.value === "Yes");
@@ -48,6 +49,18 @@ export default function OnboardingComponent() {
     await completeOnboarding(formData);
     await user?.reload();
     router.push(HOME_PATH);
+  };
+
+  const addLastPeriodDate = () => {
+    if (lastPeriodDates.length < 12) {
+      setLastPeriodDates([...lastPeriodDates, ""]);
+    }
+  };
+
+  const handleDateChange = (index: number, value: string) => {
+    const updatedDates = [...lastPeriodDates];
+    updatedDates[index] = value;
+    setLastPeriodDates(updatedDates);
   };
 
   return (
@@ -221,18 +234,32 @@ export default function OnboardingComponent() {
               <label className="block text-sm font-semibold text-gray-700">
                 Select all the days of your last period
               </label>
-              <input
-                type="date"
-                name="lastPeriod"
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                required
-                disabled={lastPeriodUnknown}
-              />
+              {lastPeriodDates.map((date, index) => (
+                <input
+                  key={index}
+                  type="date"
+                  name="lastPeriodDays"
+                  value={date}
+                  onChange={(e) => handleDateChange(index, e.target.value)}
+                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  required={!lastPeriodUnknown && index === 0}
+                  disabled={lastPeriodUnknown}
+                />
+              ))}
+              {lastPeriodDates.length < 12 && (
+                <button
+                  type="button"
+                  onClick={addLastPeriodDate}
+                  className="mt-2 text-blue-500"
+                >
+                  + Add another date
+                </button>
+              )}
               <div className="mt-2 text-sm">
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    name="lastPeriod"
+                    name="lastPeriodUnknown"
                     value=""
                     className="form-checkbox"
                     onChange={handleLastPeriodChange}

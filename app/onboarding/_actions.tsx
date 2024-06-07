@@ -10,6 +10,8 @@ export const completeOnboarding = async (formData: FormData) => {
   }
 
   try {
+    console.log("formData", formData);
+
     const privateMetadata = {
       fullName: formData.get("name"),
       dateOfBirth: formData.get("dob"),
@@ -17,7 +19,7 @@ export const completeOnboarding = async (formData: FormData) => {
       trackers: formData.getAll("trackers"),
       fullCycleLength: formData.get("fullCycleLength"),
       periodLength: formData.get("periodLength"),
-      lastPeriod: formData.get("lastPeriod"),
+      lastPeriodDays: formData.getAll("lastPeriodDays"),
       conditions: formData.getAll("conditions"),
       moreConditions: formData.getAll("moreConditions"),
       birthControl: formData.get("birthControl"),
