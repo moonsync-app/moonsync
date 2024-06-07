@@ -1,7 +1,13 @@
 /** @type {import("eslint").Linter.Config} */
 const config = {
-  "extends": "next/core-web-vitals",
-  "plugins": ["prettier", "unused-imports"],
+  "extends": [
+    "next/core-web-vitals",
+  ],
+  "plugins": [
+    "prettier",
+    "unused-imports",
+    "import"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "unused-imports/no-unused-imports": "error",
