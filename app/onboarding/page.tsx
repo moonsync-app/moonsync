@@ -246,7 +246,8 @@ export default function OnboardingComponent() {
                   disabled={lastPeriodUnknown}
                 />
               ))}
-              {lastPeriodDates.length < 12 && (
+              {/* allow to have up to 12 dates */}
+              {lastPeriodDates.length < 13 && (
                 <button
                   type="button"
                   onClick={addLastPeriodDate}
