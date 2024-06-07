@@ -15,7 +15,6 @@ export const completeOnboarding = async (formData: FormData) => {
       dateOfBirth: formData.get("dob"),
       wearablesUsage: formData.get("wearablesUsage"),
       trackers: formData.getAll("trackers"),
-      otherTracker: formData.get("otherTracker"),
       fullCycleLength: formData.get("fullCycleLength"),
       periodLength: formData.get("periodLength"),
       lastPeriod: formData.get("lastPeriod"),
