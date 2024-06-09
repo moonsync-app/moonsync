@@ -11,7 +11,8 @@ const config = {
     "prettier",
     "unused-imports",
     "import",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "drizzle"
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
@@ -40,7 +41,27 @@ const config = {
     "import/no-commonjs": "error",
     "import/no-relative-packages": "error",
     "import/no-import-module-exports": "error",
-    "import/no-empty-named-blocks": "error"
+    "import/no-empty-named-blocks": "error",
+
+    // drizzle rules
+    "drizzle/enforce-delete-with-where": [
+      "error",
+      {
+        "drizzleObjectName": [
+          "db",
+          "ctx.db"
+        ]
+      }
+    ],
+    "drizzle/enforce-update-with-where": [
+      "error",
+      {
+        "drizzleObjectName": [
+          "db",
+          "ctx.db"
+        ]
+      }
+    ],
   }
 }
 
