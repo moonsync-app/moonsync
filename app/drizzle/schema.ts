@@ -25,9 +25,7 @@ export const UserTable = moonsyncSchema.table(
   },
   (table) => {
     return {
-      clerkIdIndex: index("clerk_id_idx").on(table.clerkId),
       nameIndex: index("name_idx").on(table.name),
-      emailIndex: index("email_idx").on(table.email),
     };
   },
 );
