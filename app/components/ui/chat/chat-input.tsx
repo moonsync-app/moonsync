@@ -1,4 +1,4 @@
-import { useState, LegacyRef } from "react";
+import { useState, Ref } from "react";
 import { Button } from "@/app/components/ui/button";
 import FileUploader from "@/app/components/ui/file-uploader";
 import { Input } from "@/app/components/ui/input";
@@ -16,7 +16,7 @@ export default function ChatInput(
     | "handleInputChange"
   > & {
     multiModal?: boolean;
-    currRef: LegacyRef<HTMLButtonElement> | undefined;
+    currRef: Ref<HTMLButtonElement> | undefined;
   },
 ) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
