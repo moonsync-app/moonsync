@@ -1,15 +1,9 @@
 import { sql } from "drizzle-orm";
-import {
-  pgSchema,
-  pgTable,
-  serial,
-  timestamp,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { pgSchema, serial, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const moonsyncSchema = pgSchema("moonsync");
 
-export const UserTable = pgTable("users", {
+export const UserTable = moonsyncSchema.table("users", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 255 }).notNull(),
   email: varchar("email", { length: 255 }).unique().notNull(),
