@@ -1,23 +1,36 @@
 import { relations } from "drizzle-orm";
 import {
+  index,
   integer,
   jsonb,
   pgSchema,
   serial,
+  text,
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
 
 export const moonsyncSchema = pgSchema("moonsync");
 
-export const UserTable = moonsyncSchema.table("user", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 255 }).notNull(),
-  email: varchar("email", { length: 255 }).unique().notNull(),
-  phoneNumber: varchar("phone_number", { length: 255 }).unique().notNull(),
-  ctime: timestamp("ctime").notNull().defaultNow(),
-  mtime: timestamp("mtime").notNull().defaultNow(),
-});
+export const UserTable = moonsyncSchema.table(
+  "user",
+  {
+    id: serial("id").primaryKey(),
+    clerkId: varchar("clerk_id", { length: 32 }).unique().notNull(),
+    name: text("name").notNull(),
+    email: varchar("email", { length: 255 }).unique().notNull(),
+    phoneNumber: varchar("phone_number", { length: 15 }).unique().notNull(),
+    ctime: timestamp("ctime").notNull().defaultNow(),
+    mtime: timestamp("mtime").notNull().defaultNow(),
+  },
+  (table) => {
+    return {
+      clerkIdIndex: index("clerk_id_idx").on(table.clerkId),
+      nameIndex: index("name_idx").on(table.name),
+      emailIndex: index("email_idx").on(table.email),
+    };
+  },
+);
 
 export const Onboarding = moonsyncSchema.table("onboarding", {
   id: serial("id").primaryKey(),
