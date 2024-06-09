@@ -50,12 +50,6 @@ export async function POST(request: NextRequest) {
       data?.imageUrl,
     );
 
-    // Make a GET request to the external API
-    // const response = await fetch(
-    //   `${apiUrl}?prompt=${encodeURIComponent(userMessageContent)}`,
-    //   { method: 'GET' }
-    // );
-
     // print out geolocation info
     const {
       country = "US",
