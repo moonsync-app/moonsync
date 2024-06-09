@@ -1,6 +1,6 @@
 import { Check, Copy } from "lucide-react";
 
-import { Message } from "ai";
+import type { Message } from "ai/react";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/button";
 import ChatAvatar from "@/app/components/ui/chat/chat-avatar";
