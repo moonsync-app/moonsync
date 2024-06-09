@@ -15,6 +15,13 @@
       "when": 1717903834578,
       "tag": "0001_smart_moira_mactaggert",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1717904281406,
+      "tag": "0002_wealthy_jimmy_woo",
+      "breakpoints": true
     }
   ]
 }
