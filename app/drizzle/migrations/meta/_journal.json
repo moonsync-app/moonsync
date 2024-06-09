@@ -15,6 +15,13 @@
       "when": 1717895898624,
       "tag": "0001_jazzy_praxagora",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1717896973059,
+      "tag": "0002_ambiguous_earthquake",
+      "breakpoints": true
     }
   ]
 }
