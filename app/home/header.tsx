@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BACKEND_HOST } from "@/app/utils/constants";
-import { useUser } from "@clerk/nextjs";
+import { Greeting } from "./greeting";
 
 interface BiometricData {
   menstrual_phase: string;
@@ -14,19 +14,7 @@ interface BiometricData {
 }
 
 export default function Header() {
-  const { user } = useUser();
   const [data, setData] = useState<BiometricData | null>(null);
-
-  const currentHour = new Date().getHours();
-  let greeting;
-
-  if (currentHour < 12) {
-    greeting = "Good Morning";
-  } else if (currentHour < 18) {
-    greeting = "Good Afternoon";
-  } else {
-    greeting = "Good Evening";
-  }
 
   useEffect(() => {
     fetch(`${BACKEND_HOST}/api/biometrics`, {
@@ -44,12 +32,7 @@ export default function Header() {
 
   return (
     <div className="text-center text-black">
-      <h1 className="text-2xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-300 from-yellow-100">
-          {greeting},
-        </span>{" "}
-        {user && user.firstName}
-      </h1>
+      <Greeting />
       <br />
       {data ? (
         <>
