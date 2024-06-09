@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { GithubIcon, LogOutIcon, MenuIcon } from "lucide-react";
 
 export default function SpeedDial() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -30,43 +31,7 @@ export default function SpeedDial() {
         onClick={onClickHander}
         className={`flex items-center justify-center text-white rounded-full w-8 h-8 md:w-14 md:h-14 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800`}
       >
-        <svg
-          width="120px"
-          height="120px"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="#ffffff"
-        >
-          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            {" "}
-            <path
-              d="M4 7L7 7M20 7L11 7"
-              stroke="#ffffff"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            ></path>{" "}
-            <path
-              d="M20 17H17M4 17L13 17"
-              stroke="#ffffff"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            ></path>{" "}
-            <path
-              d="M4 12H7L20 12"
-              stroke="#ffffff"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            ></path>{" "}
-          </g>
-        </svg>
-        <span className="sr-only">Open actions menu</span>
+        <MenuIcon size="large" />
       </button>
       <div
         id="speed-dial-menu-top-left"
@@ -140,21 +105,7 @@ export default function SpeedDial() {
             data-tooltip-placement="left"
             className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? "visible opacity-100" : "invisible opacity-0"} `}
           >
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <GithubIcon />
           </button>
         </Link>
 
@@ -165,38 +116,7 @@ export default function SpeedDial() {
           data-tooltip-placement="left"
           className={`transition ease-in delay-150 flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 ${isOpened ? "visible opacity-100" : "invisible opacity-0"} `}
         >
-          <svg
-            fill="#000000"
-            height="24"
-            width="24"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 384.971 384.971"
-            xmlSpace="preserve"
-          >
-            <g>
-              <g id="Sign_Out">
-                <path
-                  d="M180.455,360.91H24.061V24.061h156.394c6.641,0,12.03-5.39,12.03-12.03s-5.39-12.03-12.03-12.03H12.03
-			C5.39,0.001,0,5.39,0,12.031V372.94c0,6.641,5.39,12.03,12.03,12.03h168.424c6.641,0,12.03-5.39,12.03-12.03
-			C192.485,366.299,187.095,360.91,180.455,360.91z"
-                />
-                <path
-                  d="M381.481,184.088l-83.009-84.2c-4.704-4.752-12.319-4.74-17.011,0c-4.704,4.74-4.704,12.439,0,17.179l62.558,63.46H96.279
-			c-6.641,0-12.03,5.438-12.03,12.151c0,6.713,5.39,12.151,12.03,12.151h247.74l-62.558,63.46c-4.704,4.752-4.704,12.439,0,17.179
-			c4.704,4.752,12.319,4.752,17.011,0l82.997-84.2C386.113,196.588,386.161,188.756,381.481,184.088z"
-                />
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </g>
-          </svg>
+          <LogOutIcon />
         </button>
       </div>
     </div>
