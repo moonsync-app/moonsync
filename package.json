@@ -11,8 +11,6 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "generate": "node app/api/chat/engine/generate.mjs",
-    "prettier": "prettier --write 'app/**/*.{js,ts,json,html,xml,css,md}'",
     "prepare": "husky"
   },
   "dependencies": {
