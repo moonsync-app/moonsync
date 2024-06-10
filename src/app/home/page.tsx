@@ -1,7 +1,7 @@
 import StatsComponent from "@/app/home/stats";
 import Header from "@/app/home/header";
 import { Poppins } from "next/font/google";
-import SpeedDial from "@/app/components/ui/speed-dial";
+import SpeedDial from "@/components/ui/speed-dial";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 

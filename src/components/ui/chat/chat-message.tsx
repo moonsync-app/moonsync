@@ -2,10 +2,10 @@ import { Check, Copy } from "lucide-react";
 
 import { Message } from "ai";
 import Image from "next/image";
-import { Button } from "@/app/components/ui/button";
-import ChatAvatar from "@/app/components/ui/chat/chat-avatar";
-import Markdown from "@/app/components/ui/chat/markdown";
-import { useCopyToClipboard } from "@/app/components/ui/chat/use-copy-to-clipboard";
+import { Button } from "@/components/ui/button";
+import ChatAvatar from "@/components/ui/chat/chat-avatar";
+import Markdown from "@/components/ui/chat/markdown";
+import { useCopyToClipboard } from "@/components/ui/chat/use-copy-to-clipboard";
 
 // This component will parse message data and render the appropriate UI.
 function ChatMessageData({ imageUrl }: { imageUrl: string }) {

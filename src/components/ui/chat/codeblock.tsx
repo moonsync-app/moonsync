@@ -5,8 +5,8 @@ import { FC, memo } from "react";
 import { Prism, SyntaxHighlighterProps } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-import { Button } from "@/app/components/ui/button";
-import { useCopyToClipboard } from "@/app/components/ui/chat/use-copy-to-clipboard";
+import { Button } from "@/components/ui/button";
+import { useCopyToClipboard } from "@/components/ui/chat/use-copy-to-clipboard";
 
 // TODO: Remove this when @type/react-syntax-highlighter is updated
 const SyntaxHighlighter = Prism as unknown as FC<SyntaxHighlighterProps>;

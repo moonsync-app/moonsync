@@ -2,8 +2,8 @@
 
 import { Loader2, Paperclip } from "lucide-react";
 import { ChangeEvent, useState } from "react";
-import { buttonVariants } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/components/ui/lib/utils";
 
 export interface FileUploaderProps {
   config?: {
