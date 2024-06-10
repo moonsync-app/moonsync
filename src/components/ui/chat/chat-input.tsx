@@ -22,6 +22,8 @@ export default function ChatInput(
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (imageUrl) {
       props.handleSubmit(e, {
         data: { imageUrl: imageUrl },
