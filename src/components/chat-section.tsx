@@ -5,6 +5,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { insertDataIntoMessages } from "@/components/transform";
 import { ChatInput, ChatMessages } from "@/components/ui/chat";
 import { useSearchParams } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 export default function ChatSection() {
   const searchParams = useSearchParams();
@@ -12,6 +13,8 @@ export default function ChatSection() {
 
   const query = searchParams.get("query");
   console.log("query", query);
+
+  const { user } = useUser();
 
   const {
     messages,
@@ -26,6 +29,7 @@ export default function ChatSection() {
     api: process.env.NEXT_PUBLIC_CHAT_API,
     headers: {
       "Content-Type": "application/json", // using JSON because of vercel/ai 2.2.26
+      "x-user-id": user?.id as string,
     },
     initialInput: query ? query : "",
   });
