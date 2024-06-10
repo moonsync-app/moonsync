@@ -1,4 +1,5 @@
-import { JSONValue, Message } from "ai";
+import { JSONValue } from "ai";
+import type { Message } from "ai/react";
 
 export const isValidMessageData = (rawData: JSONValue | undefined) => {
   if (!rawData || typeof rawData !== "object") return false;
