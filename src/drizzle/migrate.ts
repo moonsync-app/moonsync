@@ -8,5 +8,5 @@ const migrationClient = postgres(process.env.DATABASE_URL as string, {
 
 // This will run migrations on the database, skipping the ones already applied
 await migrate(drizzle(migrationClient), {
-  migrationsFolder: "./app/drizzle/migrations",
+  migrationsFolder: "./src/drizzle/migrations",
 });
