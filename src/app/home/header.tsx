@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BACKEND_HOST } from "@/app/utils/constants";
+import { BACKEND_HOST } from "@/lib/constants";
 import { Greeting } from "./greeting";
 
 interface BiometricData {

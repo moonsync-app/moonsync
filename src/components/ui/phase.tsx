@@ -3,7 +3,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { pie as d3_pie, arc, sum } from "d3";
 import { data } from "@/app/components/ui/data";
-import { BACKEND_HOST } from "@/app/utils/constants";
+import { BACKEND_HOST } from "@/lib/constants";
 
 type DonutChartProps = {
   width: number;

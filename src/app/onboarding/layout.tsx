@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { type JwtPayload } from "@clerk/types";
-import { HOME_PATH } from "@/app/utils/constants";
+import { HOME_PATH } from "@/lib/constants";
 
 interface CustomJwtPayload extends JwtPayload {
   metadata?: {

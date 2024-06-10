@@ -1,7 +1,7 @@
 import { StreamingTextResponse } from "ai";
 import { ChatMessage, MessageContent } from "llamaindex";
 import { NextRequest, NextResponse } from "next/server";
-import { CHAT_API_URL } from "@/app/utils/constants";
+import { CHAT_API_URL } from "@/lib/constants";
 import { getGeolocation } from "./geolocation";
 
 export const runtime = "edge";

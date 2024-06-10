@@ -2,7 +2,7 @@
 
 import StatsCard from "@/app/home/stats-card";
 import { useEffect, useState } from "react";
-import { BACKEND_HOST } from "@/app/utils/constants";
+import { BACKEND_HOST } from "@/lib/constants";
 
 interface Data {
   mood_resp: string;

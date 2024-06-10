@@ -5,7 +5,7 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { completeOnboarding } from "@/app/onboarding/_actions";
-import { HOME_PATH } from "@/app/utils/constants";
+import { HOME_PATH } from "@/lib/constants";
 
 export default function OnboardingComponent() {
   const { user } = useUser();
