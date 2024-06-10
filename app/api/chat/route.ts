@@ -1,8 +1,8 @@
 import { StreamingTextResponse } from "ai";
 import { ChatMessage, MessageContent } from "llamaindex";
 import { NextRequest, NextResponse } from "next/server";
-import { geolocation } from "@vercel/edge";
 import { CHAT_API_URL } from "@/app/utils/constants";
+import { getGeolocation } from "./geolocation";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
@@ -50,13 +50,7 @@ export async function POST(request: NextRequest) {
       data?.imageUrl,
     );
 
-    // print out geolocation info
-    const {
-      country = "US",
-      city = "NYC",
-      region = "NY",
-    } = geolocation(request);
-    console.log(`Country: ${country}, City: ${city}, Region: ${region}`);
+    const { country, city, region } = getGeolocation(request);
 
     // Make a POST request to the external API
     const response = await fetch(CHAT_API_URL, {
