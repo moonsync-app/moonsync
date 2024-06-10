@@ -3,13 +3,9 @@ import { ChatMessage, MessageContent } from "llamaindex";
 import { NextRequest, NextResponse } from "next/server";
 import { CHAT_API_URL } from "@/lib/constants";
 import { getGeolocation } from "./geolocation";
-import { db } from "@/app/drizzle";
+import { db } from "@/drizzle";
 import { eq } from "drizzle-orm";
-import { ChatTable, UserTable } from "@/app/drizzle/schema";
-
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
-export const maxDuration = 300; // set to 5 mins
+import { ChatTable, UserTable } from "@/drizzle/schema";
 
 const convertMessageContent = (
   textMessage: string,
@@ -31,6 +27,7 @@ const convertMessageContent = (
 };
 
 async function persistChatMessage(userId: string, message: ChatMessage) {
+  console.log(`[api:chat] Persisting chat message for user ${userId}`);
   const user = await db.query.UserTable.findFirst({
     where: eq(UserTable.clerkId, userId),
   });
