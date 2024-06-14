@@ -1,13 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { type JwtPayload } from "@clerk/types";
 import { HOME_PATH } from "@/lib/constants";
-
-interface CustomJwtPayload extends JwtPayload {
-  metadata?: {
-    onboardingComplete?: boolean;
-  };
-}
+import { CustomJwtPayload } from "@/app/types/jwt";
 
 export default function RootLayout({
   children,
