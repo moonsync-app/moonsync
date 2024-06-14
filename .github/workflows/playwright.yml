@@ -1,6 +1,6 @@
 name: playwright
 
-on: [push, pull_request]
+on:
 
 jobs:
   e2e-tests:
