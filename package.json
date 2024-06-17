@@ -8,7 +8,7 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "test:e2e": "pnpm install && playwright test --project=chromium",
+    "test:e2e": "playwright test",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
