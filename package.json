@@ -8,6 +8,7 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
+    "test:e2e": "playwright test",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "@clerk/types": "^4.6.0",
+    "@playwright/test": "^1.44.1",
     "@types/d3": "^7.4.3",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
