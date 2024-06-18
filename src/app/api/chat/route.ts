@@ -3,10 +3,9 @@ import { ChatMessage, MessageContent } from "llamaindex";
 import { NextRequest, NextResponse } from "next/server";
 import { CHAT_API_URL } from "@/lib/constants";
 import { getGeolocation } from "./geolocation";
-
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
-export const maxDuration = 300; // set to 5 mins
+import { db } from "@/drizzle";
+import { eq } from "drizzle-orm";
+import { ChatTable, UserTable } from "@/drizzle/schema";
 
 const convertMessageContent = (
   textMessage: string,
@@ -27,6 +26,25 @@ const convertMessageContent = (
   ];
 };
 
+async function persistChatMessage(userId: string, message: ChatMessage) {
+  console.log(`[api:chat] Persisting chat message for user ${userId}`);
+  const user = await db.query.UserTable.findFirst({
+    where: eq(UserTable.clerkId, userId),
+  });
+  if (!user) {
+    throw new Error(`User with clerkId ${userId} not found`);
+  }
+
+  const chatMessage = await db.insert(ChatTable).values({
+    userId: user.id,
+    chatJson: message,
+  });
+
+  if (!chatMessage) {
+    throw new Error("Failed to persist chat message");
+  }
+}
+
 export async function POST(request: NextRequest) {
   console.log(`[api:chat] Request: ${JSON.stringify(request)}`);
 
@@ -43,6 +61,12 @@ export async function POST(request: NextRequest) {
         { status: 400 },
       );
     }
+
+    // persist chatMessage for user
+    await persistChatMessage(
+      request.headers.get("x-user-id") as string,
+      userMessage,
+    );
 
     // Convert message content from Vercel/AI format to LlamaIndex/OpenAI format
     const userMessageContent = convertMessageContent(
